@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="802.0" prefWidth="1536.0" styleClass="Background" stylesheets="@../../css/TVV.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.tvv.frontendteamd.BenachrichtigungenController">
+   <children>
+      <AnchorPane layoutX="-17.0" layoutY="-26.0" styleClass="Background" stylesheets="@../../css/TVV.css">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0fff5" height="193.0" layoutX="9.0" layoutY="9.0" stroke="#effff5" strokeType="INSIDE" width="1543.0">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.4909551739692688" green="0.5157894492149353" blue="0.5000610947608948" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Rectangle>
+            <AnchorPane layoutX="524.0" layoutY="18.0">
+               <children>
+                  <Label layoutX="103.0" text="TVV">
+                     <font>
+                        <Font name="Britannic Bold" size="170.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="167.0" layoutY="131.0" text="icket">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="252.0" layoutY="131.0" text="erkauf">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="131.0" text="orarlberg">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="149.0" text="---------------------------------------------------------------------------------------------------------" />
+                  <Label layoutX="159.0" layoutY="158.0" text="KINO --- THEATER --- KONZERT">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button graphicTextGap="0.0" layoutX="1352.0" layoutY="124.0" mnemonicParsing="false" onAction="#oeffneWarenkorb" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="Warenkorb" textAlignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="warenkorbBild" fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Warenkorb.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Britannic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button graphicTextGap="0.0" layoutX="1085.0" layoutY="124.0" mnemonicParsing="false" onAction="#oeffneEventsuche" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="Event-Suche" textAlignment="RIGHT">
+               <font>
+                  <Font name="Britannic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Eventsuche.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button graphicTextGap="0.0" layoutX="286.0" layoutY="124.0" mnemonicParsing="false" onAction="#oeffneKundensuche" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="Kundensuche" textAlignment="RIGHT">
+               <font>
+                  <Font name="Britannic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Kundensuche.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button graphicTextGap="0.0" layoutX="1400.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="LOGOUT" textAlignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="warenkorbBild1" fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Britannic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button graphicTextGap="0.0" layoutX="35.0" layoutY="124.0" mnemonicParsing="false" styleClass="CurrentPageHeaderButton" stylesheets="@../../css/TVV.css" text="Benachrichtigungen" textAlignment="RIGHT">
+               <font>
+                  <Font name="Britannic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="benachrichtigungBild" fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Benachrichtigungen.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="10.0" layoutY="190.0" prefHeight="605.0" prefWidth="1516.0" styleClass="ScrollArea" stylesheets="@../../css/TVV.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="190.0">
+         <content>
+            <AnchorPane prefHeight="585.0" prefWidth="1538.0" styleClass="Background" stylesheets="@../../css/TVV.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="481.0" prefHeight="66.0" prefWidth="575.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Benachrichtigungen">
+                     <font>
+                        <Font name="Britannic Bold" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="367.0" layoutY="112.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Klicken Sie auf eine Nachricht in der Liste, um diese anzuzeigen." />
+                  <TableView fx:id="nachrichtenTV" layoutX="274.0" layoutY="180.0" prefHeight="370.0" prefWidth="989.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
+                     <columns>
+                        <TableColumn fx:id="themaSpalte" prefWidth="223.19992065429688" text="THEMA" />
+                        <TableColumn fx:id="betreffSpalte" minWidth="0.0" prefWidth="554.3999633789062" text="BETREFF" />
+                        <TableColumn fx:id="zustelldatumSpalte" prefWidth="212.0" text="ZUSTELLDATUM" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="messageSendenButton" layoutX="1242.0" layoutY="8.0" mnemonicParsing="false" onAction="#oeffneMessageSenden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="Neue Nachricht verfassen">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/MessageSenden.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#oeffneAboEinstellungen" styleClass="SecondaryButton" stylesheets="@../../css/TVV.css" text="Abonnierte Themen bearbeiten">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/AboEinstellungen.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

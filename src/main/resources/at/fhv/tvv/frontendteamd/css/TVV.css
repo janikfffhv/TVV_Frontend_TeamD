@@ -1,0 +1,303 @@
+
+/*-------------------------------------------------ALLGEMEINES-------------------------------------------------*/
+
+.Background {
+
+    -fx-background-color: #FFFF;
+
+}
+
+.ScrollArea {
+
+    -fx-border-color: #FFFFFF;
+    -fx-background-color: #FFFF;
+
+}
+
+/*-------------------------------------------------BUTTONS-------------------------------------------------*/
+
+.HeaderButton { /* Buttons, die sich im Header der Applikation befinden */
+
+    -fx-background-color: #EFFFF5;
+    -fx-background-radius: 40, 40, 40, 40;
+
+}
+
+.HeaderButton:hover { /* Wenn mit der Maus darübergefahren wird */
+
+    -fx-background-color: #a2f6c4;
+    -fx-cursor: hand;
+
+}
+
+.CurrentPageHeaderButton { /* Header-Button von derjenigen Seite, auf der man sich gerade befindet - Nicht anklickbar */
+
+    -fx-background-color: #a2f6c4;
+    -fx-background-radius: 40, 40, 40, 40;
+
+}
+
+.SearchButton { /* Button, um die Event- bzw. Kundensuche zu starten */
+
+    -fx-background-color: #a2f6c4;
+    -fx-background-radius: 40, 40, 40, 40;
+
+    -fx-border-color: #effff5;
+    -fx-border-radius: 40, 40, 40, 40;
+    -fx-border-width: 3;
+
+    -fx-font-size: 20px;
+    -fx-font-family: "Britannic Bold";
+
+}
+
+.SearchButton:hover {
+
+    -fx-background-color: #effff5;
+    -fx-border-color: #a2f6c4;
+    -fx-cursor: hand;
+
+}
+
+.ConfirmButton { /* Button, um eine Hauptfunktionalität auf einer Unterseite auszuführen */
+
+    -fx-background-color: #a2f6c4;
+    -fx-background-radius: 40, 40, 40, 40;
+
+    -fx-border-color: #effff5;
+    -fx-border-radius: 40, 40, 40, 40;
+    -fx-border-width: 3;
+
+    -fx-font-size: 40px;
+    -fx-font-family: "Britannic Bold";
+
+}
+
+.ConfirmButton:hover {
+
+    -fx-background-color: #effff5;
+    -fx-border-color: #a2f6c4;
+    -fx-cursor: hand;
+
+}
+
+.SecondaryButton { /* Button, um eine Nebenfunktionalität auszuführen, z.B. Filter resetten */
+
+    -fx-background-color: #efefef;
+    -fx-background-radius: 40, 40, 40, 40;
+
+    -fx-border-color: #595959;
+    -fx-border-radius: 40, 40, 40, 40;
+    -fx-border-width: 3;
+
+    -fx-font-size: 15px;
+    -fx-font-family: "Britannic Bold";
+
+}
+
+.SecondaryButton:hover {
+
+    -fx-background-color: #b6b6b6;
+    -fx-cursor: hand;
+    /*-fx-text-fill: #ffffff;*/
+
+}
+
+.DeleteButton { /* Button, um eine Nebenfunktionalität auszuführen, z.B. Filter resetten */
+
+    -fx-background-color: #ff0000;
+    -fx-background-radius: 40, 40, 40, 40;
+
+    -fx-border-color: #5d1a1a;
+    -fx-border-radius: 40, 40, 40, 40;
+    -fx-border-width: 3;
+
+    -fx-font-size: 15px;
+    -fx-font-family: "Britannic Bold";
+
+}
+
+.DeleteButton:hover {
+
+    -fx-background-color: #da0000;
+    -fx-cursor: hand;
+    /*-fx-text-fill: #ffffff;*/
+
+}
+
+/*------------------------------------------------ÜBERSCHRIFTEN-------------------------------------------------*/
+
+.MainHeading { /* Hauptüberschrift einer Unterseite */
+    -fx-text-background-color: #000000;
+    -fx-font-size: 64px;
+    -fx-font-family: "Britannic Bold";
+}
+
+.InputFieldHeading { /* Überschrift, die zu einem Textfeld gehört um dieses zu beschreiben */
+
+    -fx-text-background-color: #000000;
+    -fx-font-size: 32px;
+    -fx-font-family: "Britannic Bold";
+
+}
+
+/*-------------------------------------------------TEXTE-------------------------------------------------*/
+
+.TextBold { /* Fettgedruckter Text */
+
+    -fx-text-background-color: #000000;
+    -fx-font-size: 32px;
+    -fx-font-family: "Calibri";
+    -fx-font-weight: bold;
+
+}
+
+.TextBasic { /* Standardtext */
+
+    -fx-text-background-color: #000000;
+    -fx-font-size: 32px;
+    -fx-font-family: "Calibri";
+
+}
+
+.NotificationText { /* Text, der bei einer Benachrichtigung (z.B. Validierung hat Fehler erkannt) angezeigt wird */
+
+    -fx-text-background-color: #ff0000;
+    -fx-font-size: 25px;
+    -fx-font-family: "Calibri";
+    -fx-font-weight: bold;
+
+}
+
+.ConfirmText { /* Text, der angezeigt wird, nachdem ein Vorgang erfolgreich bearbeitet wurde (z.B. Ticket zu Warenkorb hinzufügt) */
+
+    -fx-text-background-color: #44cb00;
+    -fx-font-size: 25px;
+    -fx-font-family: "Calibri";
+    -fx-font-weight: bold;
+
+}
+
+/*-------------------------------------------------FELDER-------------------------------------------------*/
+
+.InputField { /* Feld für User-Inputs - z.B. TextField, ChoiceBox,... */
+
+    -fx-border-color: #a2f6c4;
+    -fx-border-radius: 40, 40, 40, 40;
+    -fx-border-width: 3;
+
+    -fx-background-color: #effff5;
+    -fx-background-radius: 40, 40, 40, 40;
+
+    -fx-font-family: "Calibri";
+    -fx-font-size: 15px;
+
+}
+
+.choice-box .arrow { /* Pfeil rechts bei der ChoiceBox (für die Dropdown Liste) */
+
+    -fx-background-color: #000000;
+
+}
+
+.choice-box .arrow:hover {
+
+    -fx-cursor: hand;
+
+}
+
+/*-------------------------------------------------TABELLEN-------------------------------------------------*/
+
+.table-view { /* Tabellen Layout */
+
+    -fx-background-color: #effff5;
+
+    -fx-font-family: "Calibri";
+    -fx-font-size: 15px;
+
+}
+
+.table-column {
+
+    -fx-background-color: #a2f6c4;
+    -fx-font-family: "Britannic Bold";
+    -fx-font-size: 15px;
+
+}
+
+/*-------------------------------------------------DATEPICKER-------------------------------------------------*/
+
+.date-picker {
+
+    -fx-border-color: #a2f6c4;
+    -fx-border-radius: 40, 40, 40, 40;
+    -fx-border-width: 3;
+
+    -fx-background-color: #effff5;
+
+    -fx-font-family: "Calibri";
+    -fx-font-size: 15px;
+
+}
+
+.date-picker > .text-field {
+
+    -fx-background-color: #effff5;
+    -fx-background-radius: 40 40 40 40;
+
+}
+
+.date-picker > .arrow-button { /* Kalender-Button */
+
+    -fx-background-color: #a2f6c4;
+    -fx-background-radius: 40 40 40 40;
+
+}
+
+.date-picker .arrow-button:hover { /* Kalender-Button, wenn darübergefahren wird */
+
+    -fx-background-color: #5ffc8c;
+    -fx-cursor: hand;
+
+}
+.date-picker .arrow-button .arrow { /* Kalender-Button Icon */
+
+    -fx-background-color: #000000;
+
+}
+.date-picker .cell { /* Felder innerhalb des Kalenders, welche nicht markiert bzw. ausgewählt sind */
+
+    -fx-background-color: #effff5;
+
+}
+.date-picker .cell:hover { /* Feld innerhalb des Kalenders, wenn darübergefahren wird */
+
+    -fx-background-color: #5ffc8c;
+    -fx-cursor: hand;
+
+}
+.date-picker .cell:focused { /* Feld innerhalb des Kalenders, welches ausgewählt wurde */
+
+    -fx-background-color: #5ffc8c;
+
+}
+
+.date-picker-popup  { /* Datepicker Popup-Fenster */
+
+    -fx-border-color: #5ffc8c;
+
+}
+.date-picker-popup .month-year-pane {
+
+    -fx-background-color: #ffffff;
+
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow { /* Pfeile in der oberen Leiste des Popup */
+
+    -fx-background-color: #a2f6c4;
+    -fx-cursor: hand;
+
+}
+

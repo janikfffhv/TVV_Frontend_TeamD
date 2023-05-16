@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1536.0" styleClass="Background" stylesheets="@../../css/TVV.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.tvv.frontendteamd.LoginController">
+   <children>
+      <AnchorPane layoutX="-17.0" layoutY="-26.0" styleClass="Background" stylesheets="@../../css/TVV.css">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0fff5" height="193.0" layoutX="9.0" layoutY="9.0" stroke="#effff5" strokeType="INSIDE" width="1543.0">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.4909551739692688" green="0.5157894492149353" blue="0.5000610947608948" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Rectangle>
+            <AnchorPane layoutX="524.0" layoutY="18.0">
+               <children>
+                  <Label layoutX="103.0" text="TVV">
+                     <font>
+                        <Font name="Britannic Bold" size="170.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="167.0" layoutY="131.0" text="icket">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="252.0" layoutY="131.0" text="erkauf">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="131.0" text="orarlberg">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="149.0" text="---------------------------------------------------------------------------------------------------------" />
+                  <Label layoutX="159.0" layoutY="158.0" text="KINO --- THEATER --- KONZERT">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="10.0" layoutY="190.0" prefHeight="571.0" prefWidth="1521.0" styleClass="ScrollArea" stylesheets="@../../css/TVV.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="190.0">
+         <content>
+            <AnchorPane prefHeight="584.0" prefWidth="1518.0" styleClass="Background" stylesheets="@../../css/TVV.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="452.0" prefHeight="66.0" prefWidth="596.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Willkommen bei TVV!">
+                     <font>
+                        <Font name="Britannic Bold" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="531.0" layoutY="113.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Bitte geben Sie ihre Login-Daten ein!" />
+                  <AnchorPane layoutX="144.0" layoutY="190.0">
+                     <children>
+                        <Label styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="User-ID:" />
+                        <TextField fx:id="userIDTF" alignment="CENTER" layoutY="35.0" onAction="#zuPasswortTFSpringen" prefHeight="34.0" prefWidth="349.0" promptText="....................." styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="575.0" layoutY="190.0">
+                     <children>
+                        <Label styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Passwort:" />
+                        <PasswordField fx:id="passwortTF" alignment="CENTER" layoutY="35.0" onAction="#login" prefHeight="34.0" prefWidth="350.0" promptText="**************" styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="647.0" layoutY="363.0" mnemonicParsing="false" onAction="#login" styleClass="ConfirmButton" text="LOGIN">
+                     <graphic>
+                        <ImageView fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/Login.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="userIDErrorLabel" layoutX="144.0" layoutY="260.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Geben Sie eine User-ID ein!" visible="false" />
+                  <Label fx:id="passwortErrorLabel" layoutX="575.0" layoutY="260.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Geben Sie ein Passwort ein!" visible="false" />
+                  <Label fx:id="falseLoginErrorLabel" layoutX="582.0" layoutY="450.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Fehler: User-ID und/oder Passwort sind inkorrekt!" visible="false" />
+                  <AnchorPane layoutX="1007.0" layoutY="190.0">
+                     <children>
+                        <Label styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="IP-Adresse:" />
+                        <TextField fx:id="ipTF" alignment="CENTER" layoutY="35.0" onAction="#login" prefHeight="34.0" prefWidth="349.0" promptText="192.233.XXX.YYY.ZZZ" styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="ipErrorLabel" layoutX="1007.0" layoutY="260.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Geben Sie eine gültige IP-Adresse ein!" visible="false" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
