@@ -4,64 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/BenachrichtigungenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangEndeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangZusammenfassungController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundensucheController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessageSendenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessagedetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication_Capsuled.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/WarenkorbController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/model/CustomerList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/model/EventList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/css/TVV.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_AboEinstellungen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Benachrichtigungen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_MessageSenden.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Messagedetails.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/eventinfo/TVV_Eventinfo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/general/TVV_Grundlage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangDateneingabe.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangEnde.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangZusammenfassung.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/kundeninfo/TVV_Kundeninfo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/kundensuche/TVV_Kundensuche.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/warenkorb/TVV_Warenkorb.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/hello-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Eventsuche.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Kundensuche.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Logout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Reset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Suchen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Warenkorb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/images/Zurueck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wildfly-config.xml" afterDir="false" />
+    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="EJB Implementation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shared-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/BenachrichtigungenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/BenachrichtigungenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangZusammenfassungController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangZusammenfassungController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundensucheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundensucheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessageSendenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessageSendenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +51,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -176,11 +135,25 @@
       <updated>1683634784235</updated>
       <workItem from="1683634785405" duration="5374000" />
       <workItem from="1684238074036" duration="4239000" />
-      <workItem from="1684242974144" duration="5837000" />
+      <workItem from="1684242974144" duration="9794000" />
+      <workItem from="1684316561687" duration="3508000" />
+      <workItem from="1684330894732" duration="340000" />
     </task>
+    <task id="LOCAL-00001" summary="EJB Implementation">
+      <created>1684249596183</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684249596184</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="EJB Implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="EJB Implementation" />
   </component>
 </project>

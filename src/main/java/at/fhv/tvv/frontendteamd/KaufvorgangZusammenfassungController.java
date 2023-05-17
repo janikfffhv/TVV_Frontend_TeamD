@@ -3,8 +3,8 @@ package at.fhv.tvv.frontendteamd;
 import at.fhv.tvv.shared.dto.CustomerSearchDTO;
 import at.fhv.tvv.shared.dto.VerkaufDTO;
 import at.fhv.tvv.shared.dto.WarenkorbZeileDTO;
-import at.fhv.tvv.shared.rmi.CustomerSearch;
-import at.fhv.tvv.shared.rmi.Verkauf;
+import at.fhv.tvv.shared.ejb.CustomerSearch;
+import at.fhv.tvv.shared.ejb.Verkauf;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +20,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,6 +31,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.time.Instant;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class KaufvorgangZusammenfassungController implements Initializable {
@@ -69,11 +73,19 @@ public class KaufvorgangZusammenfassungController implements Initializable {
     private TableColumn<String, WarenkorbZeileDTO> platzSpalte;
     @FXML
     private TableColumn<String, WarenkorbZeileDTO> preisSpalte;
-
+    private static Properties props = new Properties();
+    private static Context ctx = null;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
+        try {
+            ctx = new InitialContext(props);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
         eventSpalte.setCellValueFactory(new PropertyValueFactory<>("eventName"));
         eventSpalte.setPrefWidth(367);
         terminSpalte.setCellValueFactory(new PropertyValueFactory<>("termin"));
@@ -97,7 +109,7 @@ public class KaufvorgangZusammenfassungController implements Initializable {
             }
             zahlungsmethodeLabel.setText(TVVApplication.getZahlungsmethode());
             CustomerSearchDTO kunde;
-            CustomerSearch customerSearch = (CustomerSearch) Naming.lookup("rmi://" + TVVApplication.getIp() + "/customerSearch");
+            CustomerSearch customerSearch = (CustomerSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerSearchEJB!at.fhv.tvv.shared.ejb.CustomerSearch");
             kunde = customerSearch.searchById(TVVApplication.getKunde());
             nameLabel.setText(kunde.getVorname() + " " + kunde.getNachname());
             geburtsdatumLabel.setText(kunde.getGeburtsdatum());
@@ -107,9 +119,7 @@ public class KaufvorgangZusammenfassungController implements Initializable {
 
         } catch (RemoteException e) {
             throw new RuntimeException(e);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        } catch (NotBoundException e) {
+        } catch (NamingException e) {
             throw new RuntimeException(e);
         }
 
@@ -154,13 +164,13 @@ public class KaufvorgangZusammenfassungController implements Initializable {
 
 
     @FXML
-    protected void ticketBuchen(ActionEvent event) throws IOException, NotBoundException {
+    protected void ticketBuchen(ActionEvent event) throws IOException, NotBoundException, NamingException {
 
         if(validierung()) {
 
 
             VerkaufDTO verkaufDTO = new VerkaufDTO(preisGesamt, TVVApplication.getKunde(), TVVApplication.getZahlungsmethode().toUpperCase(), TVVApplication.getWarenkorb(), String.valueOf(Instant.now().getEpochSecond()));
-            Verkauf verkauf = (Verkauf) Naming.lookup("rmi://" + TVVApplication.getIp() + "/verkauf");
+            Verkauf verkauf = (Verkauf) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/VerkaufImplEJB!at.fhv.tvv.shared.ejb.Verkauf");
             if(verkauf.kaufe(verkaufDTO)) {
                 Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangEnde.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,6 +1,6 @@
 package at.fhv.tvv.frontendteamd;
 
-import at.fhv.tvv.shared.rmi.RolesTopics;
+import at.fhv.tvv.shared.ejb.RolesTopics;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,12 +13,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class AboEinstellungenController implements Initializable {
@@ -49,11 +53,18 @@ public class AboEinstellungenController implements Initializable {
     //VALIDIERUNG
     @FXML
     private Label themenErrorLabel;
-
+    private static Properties props = new Properties();
+    private static Context ctx = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
+        try {
+            ctx = new InitialContext(props);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
         //TODO: Kontrollieren, welche Themen der User bereits abonniert hat. Die Checkboxen der bereits abonnierten Themen
         //TODO: sollen bei Seitenaufruf sofort ausgewählt sein (z.B. kinoCheckbox.setSelected(true)).
         //TODO: Die dazugehörigen boolean-Variablen sollen dann auf true gesetzt werden (z.B. kinoBereitsAbonniert = true).
@@ -210,7 +221,7 @@ public class AboEinstellungenController implements Initializable {
             //SYSTEM IST BEI JEDEM USER IMMER FIX ABONNIERT!
             String username = TVVApplication.getBenutzerName();
             try {
-                RolesTopics rolesTopics = (RolesTopics) Naming.lookup("rmi://" + TVVApplication.getIp() + "/rolesTopics");
+                RolesTopics rolesTopics = (RolesTopics) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/RolesTopicsEJB!at.fhv.tvv.shared.ejb.RolesTopics");
                 rolesTopics.setTopics(topics, username);
                 TVVApplication.setTopics(topics);
             } catch (Exception e) {

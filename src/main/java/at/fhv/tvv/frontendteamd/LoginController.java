@@ -76,7 +76,7 @@ public class LoginController implements Initializable {
         if(validierung()) {
             Properties props = new Properties();
             props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
-            props.put(Context.PROVIDER_URL, "http-remoting://localhost:8080");
+            props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
             Context ctx = new InitialContext(props);
             Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml")); //SPÄTER ENTFERNEN!
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -151,13 +151,17 @@ public class LoginController implements Initializable {
 
         Hashtable<String, String> env = new Hashtable<>();
         if(ip=="") {
-            ip = "localhost";
-            TVVApplication.setIp("localhost");
+            ip = "10.0.40.167";
+            TVVApplication.setIp("10.0.40.167");
         } else {
             TVVApplication.setIp(ip);
         }
         env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-        env.put(Context.PROVIDER_URL, "ldap://" + ip + ":10389");
+        if(ip.equals("localhost")) {
+            env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":10389");
+        } else {
+            env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":389");
+        }
         env.put(Context.SECURITY_AUTHENTICATION, "simple");
         env.put(Context.SECURITY_PRINCIPAL, "cn=" + userID + ",ou=employees,dc=ad,dc=team1, dc=com");
         env.put(Context.SECURITY_CREDENTIALS, passwort);

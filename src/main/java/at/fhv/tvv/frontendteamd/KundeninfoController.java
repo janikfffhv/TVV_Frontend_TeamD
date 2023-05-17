@@ -2,7 +2,7 @@ package at.fhv.tvv.frontendteamd;
 
 import at.fhv.tvv.shared.dto.CustomerEventDTO;
 import at.fhv.tvv.shared.dto.CustomerInfoDTO;
-import at.fhv.tvv.shared.rmi.CustomerTickets;
+import at.fhv.tvv.shared.ejb.CustomerTickets;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +17,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.Naming;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
@@ -69,6 +73,8 @@ public class KundeninfoController implements Initializable {
     @FXML
     private TableColumn<String, CustomerEventDTO> zahlungsmethodeSpalte;
 
+    private static Properties props = new Properties();
+    private static Context ctx = null;
 
     // TODO
 
@@ -76,7 +82,13 @@ public class KundeninfoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        System.out.println("Die Seite wurde geöffnet.");
+        props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
+        try {
+            ctx = new InitialContext(props);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -179,7 +191,7 @@ public class KundeninfoController implements Initializable {
         System.out.println("Geöffnet, ID:" + kundenId);
         try {
             CustomerInfoDTO kunde;
-            CustomerTickets customerSearch = (CustomerTickets) Naming.lookup("rmi://" + TVVApplication.getIp() + "/customerTickets");
+            CustomerTickets customerSearch = (CustomerTickets) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerTicketsEJB!at.fhv.tvv.shared.ejb.CustomerTickets");
             kunde = customerSearch.searchById(kundenId);
             nameLabel.setText(kunde.getName());
             eventSpalte.setVisible(false);

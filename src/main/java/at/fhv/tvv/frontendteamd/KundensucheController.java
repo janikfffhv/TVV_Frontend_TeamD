@@ -2,7 +2,7 @@ package at.fhv.tvv.frontendteamd;
 
 import at.fhv.tvv.frontendteamd.model.CustomerList;
 import at.fhv.tvv.shared.dto.CustomerSearchDTO;
-import at.fhv.tvv.shared.rmi.CustomerSearch;
+import at.fhv.tvv.shared.ejb.CustomerSearch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +19,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.Naming;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -57,12 +61,21 @@ public class KundensucheController implements Initializable {
 
     @FXML
     private TableColumn adresseSpalte;
+    private static Properties props = new Properties();
+    private static Context ctx = null;
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
+        try {
+            ctx = new InitialContext(props);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //HEADER-FUNKTIONEN
@@ -154,7 +167,7 @@ public class KundensucheController implements Initializable {
             System.out.println("Suchen...");
             try {
                 List<CustomerSearchDTO> kunden;
-                CustomerSearch customerSearch = (CustomerSearch) Naming.lookup("rmi://" + TVVApplication.getIp() + "/customerSearch");
+                CustomerSearch customerSearch = (CustomerSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerSearchEJB!at.fhv.tvv.shared.ejb.CustomerSearch");
                 kunden = customerSearch.searchByString(suchbegriffTF.getText());
                 TableColumn<Integer, CustomerList> idSpalte = new TableColumn<> ("Kunden-ID");
                 idSpalte.setCellValueFactory(new PropertyValueFactory<>("id"));

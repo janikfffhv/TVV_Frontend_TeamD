@@ -3,7 +3,7 @@ package at.fhv.tvv.frontendteamd;
 import at.fhv.tvv.shared.dto.EventDescriptionDTO;
 import at.fhv.tvv.shared.dto.PlatzDTO;
 import at.fhv.tvv.shared.dto.WarenkorbZeileDTO;
-import at.fhv.tvv.shared.rmi.EventSearch;
+import at.fhv.tvv.shared.ejb.EventSearch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,15 +18,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class EventinfoController implements Initializable {
 
@@ -68,10 +68,17 @@ public class EventinfoController implements Initializable {
 
     @FXML
     private TableView eventTicketTV;
-
+    private static Properties props = new Properties();
+    private static Context ctx = null;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
+        try {
+            ctx = new InitialContext(props);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //HEADER-FUNKTIONEN
@@ -127,7 +134,7 @@ public class EventinfoController implements Initializable {
         System.out.println("Geöffnet, ID:" + kundenId);
         try {
             EventDescriptionDTO event;
-            EventSearch eventSearch = (EventSearch) Naming.lookup("rmi://" + TVVApplication.getIp() + "/eventSearch");
+            EventSearch eventSearch = (EventSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/EventSearchEJB!at.fhv.tvv.shared.ejb.EventSearch");
             event = eventSearch.searchById(kundenId);
             System.out.println(event.getBeschreibung());
             eventserieLabel.setText(event.getVeranstaltungsserie());

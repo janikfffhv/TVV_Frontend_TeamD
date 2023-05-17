@@ -65,7 +65,7 @@ public class BenachrichtigungenController implements Initializable {
 
                 messageSendenButton.setVisible(true);
         props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
-        props.put(Context.PROVIDER_URL, "http-remoting://localhost:8080");
+        props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
         try {
             ctx = new InitialContext(props);
         } catch (NamingException e) {

@@ -72,7 +72,7 @@ public class TVVApplication extends Application {
         try {
             TVVApplication.setIp(ip);
             props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
-            props.put(Context.PROVIDER_URL, "http-remoting://localhost:8080");
+            props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
             ctx = new InitialContext(props);
             tvvSession = (TvvSession) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/TvvSessionImplEJB!at.fhv.tvv.shared.ejb.TvvSession?stateful");
         } catch (Exception e) {
@@ -90,6 +90,8 @@ public class TVVApplication extends Application {
     }
 
     public static String getIp() {
+
+        System.out.println("IP: " + ip);
         return ip;
     }
 
