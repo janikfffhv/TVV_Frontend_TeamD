@@ -153,7 +153,7 @@ public class TVVApplication extends Application {
 
                     MessageConsumer messageConsumer =  (MessageConsumer) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/MessageConsumerEJB!at.fhv.tvv.shared.ejb.MessageConsumer");
                     List<MessageDTO> messages2 = messageConsumer.getMessages(TVVApplication.getBenutzerName());
-                    if(!messages2.equals(messages)) {
+                    if(messages2.size() > messages.size() && !messages2.equals(messages)) {
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {

@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="EJB Implementation">
+    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="IP Implementation / EJB Bugfixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/BenachrichtigungenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/BenachrichtigungenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangZusammenfassungController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangZusammenfassungController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundensucheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundensucheController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessageSendenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessageSendenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessagedetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessagedetailsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Messagedetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Messagedetails.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,23 +33,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Janik/IdeaProjects/frontendteamd/src/main/java/at/fhv/tvv/frontendteamd",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Janik/IdeaProjects/frontendteamd/src/main/java/at/fhv/tvv/frontendteamd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Janik\IdeaProjects\frontendteamd\src\main\java\at\fhv\tvv\frontendteamd" />
@@ -137,7 +130,8 @@
       <workItem from="1684238074036" duration="4239000" />
       <workItem from="1684242974144" duration="9794000" />
       <workItem from="1684316561687" duration="3508000" />
-      <workItem from="1684330894732" duration="340000" />
+      <workItem from="1684330894732" duration="2096000" />
+      <workItem from="1684697758702" duration="8621000" />
     </task>
     <task id="LOCAL-00001" summary="EJB Implementation">
       <created>1684249596183</created>
@@ -146,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684249596184</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="IP Implementation / EJB Bugfixes">
+      <created>1684331314521</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684331314521</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +155,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="EJB Implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="EJB Implementation" />
+    <MESSAGE value="IP Implementation / EJB Bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="IP Implementation / EJB Bugfixes" />
   </component>
 </project>

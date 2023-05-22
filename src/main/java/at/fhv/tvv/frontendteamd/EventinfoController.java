@@ -269,19 +269,28 @@ public class EventinfoController implements Initializable {
                     case "Sitzplatz":
                         eventTicketTV.getItems().clear();
                         for(PlatzDTO ticket : katSitzplatz) {
-                            eventTicketTV.getItems().add(ticket);
+                            System.out.println(ticket.getVerkaufsId());
+                            if(Objects.equals(ticket.getVerkaufsId(), "")) {
+                                eventTicketTV.getItems().add(ticket);
+                            }
                         }
                         break;
                     case "Stehplatz":
                         eventTicketTV.getItems().clear();
                         for(PlatzDTO ticket : katStehplatz) {
-                            eventTicketTV.getItems().add(ticket);
+                            System.out.println(ticket.getVerkaufsId());
+                            if(Objects.equals(ticket.getVerkaufsId(), "")) {
+                                eventTicketTV.getItems().add(ticket);
+                            }
                         }
                         break;
                     case "VIP":
                         eventTicketTV.getItems().clear();
                         for(PlatzDTO ticket : katVip) {
-                            eventTicketTV.getItems().add(ticket);
+                            System.out.println(ticket.getVerkaufsId());
+                            if(Objects.equals(ticket.getVerkaufsId(), "")) {
+                                eventTicketTV.getItems().add(ticket);
+                            }
                         }
                 }
             });
