@@ -27,7 +27,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="103.0" text="TVV">
                      <font>
@@ -123,7 +123,7 @@
          <content>
             <AnchorPane prefHeight="595.0" prefWidth="1538.0" styleClass="Background" stylesheets="@../../css/TVV.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="66.0" prefWidth="1537.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Ihr Warenkorb">
+                  <Label alignment="CENTER" prefHeight="66.0" prefWidth="1516.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Ihr Warenkorb">
                      <font>
                         <Font name="Britannic Bold" size="64.0" />
                      </font>
@@ -146,15 +146,6 @@
                         <TableColumn fx:id="preisSpalte" prefWidth="211.2000732421875" text="PREIS" />
                      </columns>
                   </TableView>
-                  <Button fx:id="ticketsLoeschenButton" layoutX="100.0" layoutY="9.0" mnemonicParsing="false" onAction="#markierteTicketsLoeschen" styleClass="SecondaryButton" stylesheets="@../../css/TVV.css" text="Markierte Tickets löschen" visible="false">
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/Reset.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                   <Label fx:id="preisTextLabel" layoutX="713.0" layoutY="456.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="GESAMT" visible="false" />
                   <Label fx:id="preisLabel" alignment="CENTER_RIGHT" layoutX="872.0" layoutY="456.0" prefHeight="34.0" prefWidth="565.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="100,99 €" visible="false" />
                   <Line fx:id="line" endX="461.800048828125" layoutX="973.0" layoutY="431.0" startX="-301.20001220703125" visible="false" />

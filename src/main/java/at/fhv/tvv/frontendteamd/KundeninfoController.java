@@ -49,12 +49,6 @@ public class KundeninfoController implements Initializable {
     @FXML
     private Label ortLabel; //PLZ + Ort
 
-    //VALIDIERUNG
-    @FXML
-    private Label ticketsStorniertLabel; //SUCCESS
-    @FXML
-    private Label ticketStornierenErrorLabel;
-
 
     //"GEBUCHTE TICKETS"-TABELLE
     @FXML
@@ -174,19 +168,6 @@ public class KundeninfoController implements Initializable {
     }
 
     @FXML
-    protected void storniereTickets() {
-
-        if(validiere()) {
-
-            System.out.println("Ausgewaehlte Tickets stornieren..."); //TODO
-
-            ticketsStorniertLabel.setVisible(true);
-
-        }
-
-    }
-
-    @FXML
     public void sucheKunde(UUID kundenId) throws IOException {
         System.out.println("Geöffnet, ID:" + kundenId);
         try {
@@ -217,26 +198,6 @@ public class KundeninfoController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-
-    private boolean validiere() {
-
-        boolean valid = true;
-
-        ticketsStorniertLabel.setVisible(false);
-        ticketStornierenErrorLabel.setVisible(false);
-
-        if(ticketsTV.getSelectionModel().getSelectedItem() == null) {
-
-            ticketStornierenErrorLabel.setVisible(true);
-
-            valid = false;
-
-        }
-
-        return valid;
-
     }
 
 }

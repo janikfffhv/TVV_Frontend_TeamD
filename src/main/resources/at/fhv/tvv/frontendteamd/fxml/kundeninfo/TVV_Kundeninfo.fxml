@@ -27,7 +27,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="103.0" text="TVV">
                      <font>
@@ -123,31 +123,21 @@
          <content>
             <AnchorPane prefHeight="590.0" prefWidth="1538.0" styleClass="Background" stylesheets="@../../css/TVV.css">
                <children>
-                  <Label fx:id="nameLabel" alignment="CENTER" layoutX="221.0" layoutY="-1.0" prefHeight="66.0" prefWidth="1029.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Vorname + Nachname" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="288.0">
+                  <Label fx:id="nameLabel" alignment="CENTER" layoutX="221.0" layoutY="-1.0" prefHeight="66.0" prefWidth="1029.0" stylesheets="@../../css/TVV.css" text="Vorname + Nachname" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="288.0">
                      <font>
-                        <Font name="Britannic Bold" size="64.0" />
+                        <Font name="Britannic Bold" size="50.0" />
                      </font>
                   </Label>
-                  <Button layoutX="25.0" layoutY="191.0" mnemonicParsing="false" onAction="#storniereTickets" styleClass="DeleteButton" stylesheets="@../../css/TVV.css" text="Ausgewählte Tickets stornieren">
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/Reset.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                   <AnchorPane layoutX="2.0" layoutY="489.0" stylesheets="@../../css/TVV.css" />
-                  <Label layoutX="627.0" layoutY="200.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Gebuchte Tickets:" />
-                  <Label fx:id="ticketsStorniertLabel" layoutX="25.0" layoutY="240.0" prefHeight="32.0" prefWidth="314.0" styleClass="ConfirmText" stylesheets="@../../css/TVV.css" text="Ticket(s) erfolgreich storniert!" visible="false" />
-                  <AnchorPane layoutX="566.0" layoutY="80.0">
+                  <Label layoutX="610.0" layoutY="244.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Gebuchte Tickets:" />
+                  <AnchorPane layoutX="553.0" layoutY="65.0" prefHeight="48.0" prefWidth="366.0">
                      <children>
-                        <Label fx:id="geburtsdatumLabel" layoutX="160.0" prefHeight="38.0" prefWidth="179.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="01.01.1970" />
+                        <Label fx:id="geburtsdatumLabel" layoutX="183.0" layoutY="3.0" prefHeight="38.0" prefWidth="179.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="01.01.1970" />
                         <Label layoutY="5.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="geboren am" />
                      </children>
                   </AnchorPane>
-                  <Label fx:id="adresseLabel" alignment="CENTER" layoutX="431.0" layoutY="128.0" prefHeight="18.0" prefWidth="610.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Straße + HausNr." />
-                  <Label fx:id="ortLabel" alignment="CENTER" layoutX="428.0" layoutY="150.0" prefHeight="22.0" prefWidth="617.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="6850 Dornbirn" />
+                  <Label fx:id="adresseLabel" alignment="CENTER" layoutX="194.0" layoutY="119.0" prefHeight="38.0" prefWidth="1083.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Straße + HausNr." />
+                  <Label fx:id="ortLabel" alignment="CENTER" layoutX="211.0" layoutY="158.0" prefHeight="38.0" prefWidth="1052.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="6850 Dornbirn" />
                   <Button layoutX="25.0" layoutY="10.0" mnemonicParsing="false" onAction="#zurueckZurSuche" styleClass="SecondaryButton" stylesheets="@../../css/TVV.css" text="Zurück zur Suche">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
@@ -157,8 +147,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label fx:id="ticketStornierenErrorLabel" layoutX="25.0" layoutY="240.0" prefHeight="32.0" prefWidth="418.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Bitte mindestens ein Ticket auswählen!" visible="false" />
-                  <Separator layoutX="13.0" layoutY="179.0" prefHeight="2.0" prefWidth="1473.0" />
+                  <Separator layoutX="14.0" layoutY="213.0" prefHeight="2.0" prefWidth="1473.0" />
                   <TableView fx:id="ticketsTV" layoutX="52.0" layoutY="279.0" prefHeight="282.0" prefWidth="1368.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
                      <columns>
                         <TableColumn fx:id="ticketIDSpalte" prefWidth="168.00003385543823" text="TICKET-ID" />

@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="804.0" prefWidth="1538.0" styleClass="Background" stylesheets="@../../css/TVV.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.tvv.frontendteamd.EventinfoController">
+<AnchorPane prefHeight="804.0" prefWidth="1538.0" styleClass="Background" stylesheets="@../../css/TVV.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.tvv.frontendteamd.EventinfoController">
    <children>
       <AnchorPane layoutX="-17.0" layoutY="-26.0" prefHeight="204.0" prefWidth="1553.0" styleClass="Background" stylesheets="@../../css/TVV.css">
          <children>
@@ -21,7 +29,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="102.0" layoutY="3.0" prefHeight="152.0" prefWidth="328.0" text="TVV">
                      <font>
@@ -124,16 +132,16 @@
                   </Label>
                   <Separator layoutX="-2.0" layoutY="56.0" prefHeight="20.0" prefWidth="1537.0" />
                   <Label layoutX="65.0" layoutY="127.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="gehört zu:" />
-                  <Label fx:id="eventserieLabel" layoutX="210.0" layoutY="126.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstaltungsserie" />
+                  <Label fx:id="eventserieLabel" layoutX="223.0" layoutY="125.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstaltungsserie" />
                   <Label layoutX="65.0" layoutY="177.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="organisiert von:" />
-                  <Label fx:id="veranstalterLabel" layoutX="278.0" layoutY="175.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstalter" />
+                  <Label fx:id="veranstalterLabel" layoutX="302.0" layoutY="175.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstalter" />
                   <Label layoutX="715.0" layoutY="104.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="TERMIN:" />
                   <Label fx:id="datumLabel" alignment="CENTER" layoutX="615.0" layoutY="149.0" prefHeight="2.0" prefWidth="310.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="01.07.2023 - 14:00 Uhr" />
-                  <Label fx:id="eventortLabel" alignment="CENTER" layoutX="616.0" layoutY="200.0" prefHeight="18.0" prefWidth="300.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="Veranstaltungsort" />
+                  <Label fx:id="eventortLabel" alignment="CENTER" layoutX="613.0" layoutY="194.0" prefHeight="38.0" prefWidth="307.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="Veranstaltungsort" />
                   <Label fx:id="strasseLabel" alignment="CENTER" layoutX="616.0" layoutY="230.0" prefHeight="18.0" prefWidth="300.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Straße + Hausnummer" />
                   <Label fx:id="plzortLabel" alignment="CENTER" layoutX="616.0" layoutY="260.0" prefHeight="18.0" prefWidth="300.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="PLZ + Ort" />
                   <Label layoutX="65.0" layoutY="227.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kategorie:" />
-                  <Label fx:id="kategorieLabel" layoutX="210.0" layoutY="222.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Konzert" />
+                  <Label fx:id="kategorieLabel" layoutX="223.0" layoutY="225.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Konzert" />
                   <Separator layoutX="1.0" layoutY="302.0" prefHeight="10.0" prefWidth="1538.0" />
                   <Label fx:id="platzArtLabel" layoutX="65.0" layoutY="392.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Platzart:" />
                   <ChoiceBox fx:id="platzartCB" layoutX="210.0" layoutY="389.0" prefHeight="34.0" prefWidth="226.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />

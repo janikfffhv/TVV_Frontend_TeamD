@@ -28,7 +28,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="103.0" text="TVV">
                      <font>
@@ -139,18 +139,18 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="89.0" layoutY="401.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Verfügbar bis (optional):" />
+                  <Label layoutX="79.0" layoutY="372.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Verfügbar bis (optional):" />
                   <Label layoutX="813.0" layoutY="104.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Inhalt:" />
-                  <CheckBox fx:id="kinoCheckbox" layoutX="118.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kino" />
-                  <CheckBox fx:id="theaterCheckbox" layoutX="253.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Theater" />
-                  <CheckBox fx:id="konzertCheckbox" layoutX="428.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Konzert" />
-                  <CheckBox fx:id="systemCheckbox" layoutX="610.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="System" />
+                  <CheckBox fx:id="kinoCheckbox" layoutX="89.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kino" />
+                  <CheckBox fx:id="theaterCheckbox" layoutX="232.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Theater" />
+                  <CheckBox fx:id="konzertCheckbox" layoutX="408.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Konzert" />
+                  <CheckBox fx:id="systemCheckbox" layoutX="590.0" layoutY="141.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="System" />
                   <Label fx:id="themaErrorLabel" layoutX="85.0" layoutY="189.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Wählen Sie mindestens ein Thema aus!" visible="false" />
                   <Label fx:id="inhaltErrorLabel" layoutX="914.0" layoutY="108.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Geben Sie einen Text bestehend aus mindestens 3 Zeichen ein!" visible="false" />
                   <Label layoutX="85.0" layoutY="259.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Betreff:" />
-                  <TextField fx:id="betreffTF" layoutX="196.0" layoutY="256.0" prefHeight="34.0" prefWidth="463.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                  <TextField fx:id="betreffTF" layoutX="211.0" layoutY="259.0" prefHeight="34.0" prefWidth="463.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
                   <Label fx:id="betreffErrorLabel" layoutX="85.0" layoutY="290.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Wählen Sie einen Betreff bestehend aus mindestens 3 Zeichen!" visible="false" />
-                  <DatePicker fx:id="bisDatumDP" layoutX="409.0" layoutY="398.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                  <DatePicker fx:id="bisDatumDP" layoutX="452.0" layoutY="372.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
                   <Label fx:id="bisDatumErrorLabel" layoutX="89.0" layoutY="432.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Wählen Sie ein Datum, welches in der Zukunft liegt!" visible="false" />
                   <Button layoutX="547.0" layoutY="472.0" mnemonicParsing="false" onAction="#messageSenden" styleClass="ConfirmButton" stylesheets="@../../css/TVV.css" text="Nachricht abschicken">
                      <graphic>
@@ -162,7 +162,7 @@
                      </graphic></Button>
                   <Label fx:id="successLabel" layoutX="547.0" layoutY="537.0" styleClass="ConfirmText" stylesheets="@../../css/TVV.css" text="Ihre Nachricht wurde erfolgreich versandt!" visible="false" />
                   <TextArea fx:id="inhaltTA" layoutX="813.0" layoutY="135.0" prefHeight="311.0" prefWidth="646.0" styleClass="table-column" stylesheets="@../../css/TVV.css" />
-                  <Button layoutX="645.0" layoutY="400.0" mnemonicParsing="false" onAction="#resetDatumBis" styleClass="DeleteButton" stylesheets="@../../css/TVV.css" text="RESET" />
+                  <Button layoutX="688.0" layoutY="373.0" mnemonicParsing="false" onAction="#resetDatumBis" styleClass="DeleteButton" stylesheets="@../../css/TVV.css" text="RESET" />
                </children>
             </AnchorPane>
          </content>

@@ -28,7 +28,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="103.0" text="TVV">
                      <font>
@@ -86,9 +86,9 @@
                         <Font name="Britannic Bold" size="64.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="206.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchbegriff:" />
-                  <TextField fx:id="suchbegriffTF" layoutX="72.0" layoutY="236.0" onAction="#sucheKunden" prefHeight="34.0" prefWidth="278.0" promptText="z.B. Name, PLZ, Ort, Geburtsdatum,..." styleClass="InputField" stylesheets="@../../css/TVV.css" />
-                  <Button layoutX="380.0" layoutY="229.0" mnemonicParsing="false" onAction="#sucheKunden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="SUCHEN">
+                  <Label layoutX="51.0" layoutY="172.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchbegriff:" />
+                  <TextField fx:id="suchbegriffTF" layoutX="47.0" layoutY="207.0" onAction="#sucheKunden" prefHeight="34.0" prefWidth="278.0" promptText="z.B. Name, PLZ, Ort, Geburtsdatum,..." styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                  <Button layoutX="355.0" layoutY="198.0" mnemonicParsing="false" onAction="#sucheKunden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="SUCHEN">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -104,7 +104,7 @@
                         <TableColumn fx:id="adresseSpalte" prefWidth="340.0000366210937" text="ADRESSE" />
                      </columns>
                   </TableView>
-                  <Label fx:id="suchbegriffErrorLabel" layoutX="76.0" layoutY="270.0" prefHeight="84.0" prefWidth="292.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Ungültiger Suchbegriff! Muss mind. 3 Zeichen lang sein. Keine Sonderzeichen (ausgenommen -) erlaubt!" visible="false" wrapText="true" />
+                  <Label fx:id="suchbegriffErrorLabel" layoutX="51.0" layoutY="250.0" prefHeight="119.0" prefWidth="408.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Ungültiger Suchbegriff! Muss mind. 3 Zeichen lang sein. Keine Sonderzeichen (ausgenommen -) erlaubt!" visible="false" wrapText="true" />
                   <Button layoutX="44.0" layoutY="10.0" mnemonicParsing="false" onAction="#zurueckZumWarenkorb" styleClass="SecondaryButton" stylesheets="@../../css/TVV.css" text="Zurück zum Warenkorb">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
@@ -115,13 +115,13 @@
                      </graphic>
                   </Button>
                   <Label layoutX="497.0" layoutY="99.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Wählen Sie einen Kunden aus der Liste aus:" />
-                  <AnchorPane layoutX="287.0" layoutY="403.0">
+                  <AnchorPane layoutX="239.0" layoutY="405.0" prefHeight="38.0" prefWidth="1051.0">
                      <children>
                         <Label layoutX="0.150390625" layoutY="3.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Wählen Sie die Zahlungsmethode des Kunden aus:" />
-                        <ChoiceBox fx:id="zahlungsmethodeCB" layoutX="641.0" prefHeight="34.0" prefWidth="289.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                        <ChoiceBox fx:id="zahlungsmethodeCB" layoutX="747.0" layoutY="2.0" prefHeight="34.0" prefWidth="289.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
                      </children>
                   </AnchorPane>
-                  <Label fx:id="zahlungsmethodeErrorLabel" layoutX="936.0" layoutY="437.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Wählen Sie eine Zahlungsmethode!" visible="false" />
+                  <Label fx:id="zahlungsmethodeErrorLabel" layoutX="991.0" layoutY="443.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Wählen Sie eine Zahlungsmethode aus!" visible="false" />
                   <Button layoutX="669.0" layoutY="473.0" mnemonicParsing="false" onAction="#zurZusammenfassung" styleClass="ConfirmButton" stylesheets="@../../css/TVV.css" text="WEITER" />
                   <Label fx:id="kundenwahlErrorLabel" layoutX="825.0" layoutY="361.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Wählen Sie genau einen Kunden aus der Liste aus!" visible="false" />
                </children>

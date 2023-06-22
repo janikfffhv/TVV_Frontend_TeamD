@@ -26,7 +26,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="103.0" text="TVV">
                      <font>
@@ -135,7 +135,7 @@
                         <TableColumn fx:id="zustelldatumSpalte" prefWidth="212.0" text="ZUSTELLDATUM" />
                      </columns>
                   </TableView>
-                  <Button fx:id="messageSendenButton" layoutX="1242.0" layoutY="8.0" mnemonicParsing="false" onAction="#oeffneMessageSenden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="Neue Nachricht verfassen">
+                  <Button fx:id="messageSendenButton" layoutX="1189.0" layoutY="6.0" mnemonicParsing="false" onAction="#oeffneMessageSenden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="Neue Nachricht verfassen">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>

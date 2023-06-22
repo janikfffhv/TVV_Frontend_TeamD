@@ -27,7 +27,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="103.0" text="TVV">
                      <font>
@@ -128,9 +128,9 @@
                         <Font name="Britannic Bold" size="64.0" />
                      </font>
                   </Label>
-                  <Label layoutX="50.0" layoutY="184.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchbegriff:" />
+                  <Label layoutX="50.0" layoutY="179.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchbegriff:" />
                   <TextField fx:id="suchbegriffTF" layoutX="50.0" layoutY="214.0" onAction="#sucheKunden" prefHeight="34.0" prefWidth="342.0" promptText="z.B. Name, PLZ, Ort, Geburtsdatum,..." styleClass="InputField" stylesheets="@../../css/TVV.css" />
-                  <Button layoutX="416.0" layoutY="207.0" mnemonicParsing="false" onAction="#sucheKunden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="SUCHEN">
+                  <Button layoutX="415.0" layoutY="205.0" mnemonicParsing="false" onAction="#sucheKunden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="SUCHEN">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -146,8 +146,8 @@
                         <TableColumn fx:id="adresseSpalte" prefWidth="369.60009765625" text="ADRESSE" />
                      </columns>
                   </TableView>
-                  <Label layoutX="942.0" layoutY="116.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchergebnisse" />
-                  <Label fx:id="suchbegriffErrorLabel" layoutX="50.0" layoutY="248.0" prefHeight="76.0" prefWidth="356.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Ungültiger Suchbegriff! Muss mind. 3 Zeichen lang sein. Keine Sonderzeichen (ausgenommen -) erlaubt!" visible="false" wrapText="true" />
+                  <Label layoutX="928.0" layoutY="111.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchergebnisse" />
+                  <Label fx:id="suchbegriffErrorLabel" layoutX="50.0" layoutY="248.0" prefHeight="146.0" prefWidth="422.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Ungültiger Suchbegriff! Muss mind. 3 Zeichen lang sein. Keine Sonderzeichen (ausgenommen -) erlaubt!" visible="false" wrapText="true" />
                </children>
             </AnchorPane>
          </content>

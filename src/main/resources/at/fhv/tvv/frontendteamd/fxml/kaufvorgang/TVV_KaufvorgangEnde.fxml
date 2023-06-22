@@ -22,7 +22,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="524.0" layoutY="18.0">
+            <AnchorPane layoutX="529.0" layoutY="25.0">
                <children>
                   <Label layoutX="103.0" text="TVV">
                      <font>
@@ -58,13 +58,13 @@
          <content>
             <AnchorPane prefHeight="578.0" prefWidth="1538.0" styleClass="Background" stylesheets="@../../css/TVV.css">
                <children>
-                  <Label alignment="CENTER" layoutX="555.0" prefHeight="66.0" prefWidth="362.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Kaufvorgang">
+                  <Label alignment="CENTER" layoutX="554.0" prefHeight="66.0" prefWidth="362.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Kaufvorgang">
                      <font>
                         <Font name="Britannic Bold" size="64.0" />
                      </font>
                   </Label>
-                  <Button layoutX="513.0" layoutY="289.0" mnemonicParsing="false" onAction="#zurEventsuche" styleClass="ConfirmButton" stylesheets="@../../css/TVV.css" text="ZURÜCK ZUR STARTSEITE" />
-                  <Label layoutX="502.0" layoutY="150.0" styleClass="ConfirmText" stylesheets="@../../css/TVV.css" text="Ihr(e) Ticket(s) wurde(n) erfolgreich gebucht!" />
+                  <Button layoutX="481.0" layoutY="289.0" mnemonicParsing="false" onAction="#zurEventsuche" styleClass="ConfirmButton" stylesheets="@../../css/TVV.css" text="ZURÜCK ZUR STARTSEITE" />
+                  <Label layoutX="501.0" layoutY="148.0" styleClass="ConfirmText" stylesheets="@../../css/TVV.css" text="Ihr(e) Ticket(s) wurde(n) erfolgreich gebucht!" />
                </children>
             </AnchorPane>
          </content>
