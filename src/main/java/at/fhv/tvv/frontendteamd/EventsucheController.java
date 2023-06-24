@@ -3,7 +3,6 @@ package at.fhv.tvv.frontendteamd;
 import at.fhv.tvv.frontendteamd.model.EventList;
 import at.fhv.tvv.shared.dto.EventSearchDTO;
 import at.fhv.tvv.shared.ejb.EventSearch;
-import at.fhv.tvv.shared.ejb.TvvSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -22,7 +22,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
-import java.rmi.Naming;
+import java.rmi.RemoteException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
@@ -103,6 +103,21 @@ public class EventsucheController implements Initializable {
             throw new RuntimeException(e);
         }
 
+        //BENACHRICHTIGUNGEN-ICON
+        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
+        //WARENKORB-ICON
+        try {
+            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+                warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+            }
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     //HEADER-FUNKTIONEN
@@ -110,9 +125,7 @@ public class EventsucheController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
-
-
+        //Angemeldeten User ausloggen
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         double breite = ((Node)event.getSource()).getScene().getWidth();
@@ -226,7 +239,7 @@ public class EventsucheController implements Initializable {
                             Scene scene = new Scene(root, breite, hoehe);
                             stage.setScene(scene);
                             EventinfoController eventinfoController = loader2.getController();
-                            eventinfoController.sucheKunde(eventId.getEventId());
+                            eventinfoController.sucheEvent(eventId.getEventId());
                             stage.show();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
@@ -292,7 +305,7 @@ public class EventsucheController implements Initializable {
                                 Scene scene = new Scene(root, breite, hoehe);
                                 stage.setScene(scene);
                                 EventinfoController eventinfoController = loader2.getController();
-                                eventinfoController.sucheKunde(eventId.getEventId());
+                                eventinfoController.sucheEvent(eventId.getEventId());
                                 stage.show();
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
@@ -364,7 +377,7 @@ public class EventsucheController implements Initializable {
                             Scene scene = new Scene(root, breite, hoehe);
                             stage.setScene(scene);
                             EventinfoController eventinfoController = loader2.getController();
-                            eventinfoController.sucheKunde(eventId.getEventId());
+                            eventinfoController.sucheEvent(eventId.getEventId());
                             stage.show();
                         } catch (IOException e) {
                             throw new RuntimeException(e);

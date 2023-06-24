@@ -71,14 +71,12 @@ public class LoginController implements Initializable {
     @FXML
     protected void login(ActionEvent event) throws IOException, NotBoundException, NamingException {
 
-        //TODO: LOGIN MITTELS LDAP IMPLEMENTIEREN;
-
         if(validierung()) {
             Properties props = new Properties();
             props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
             props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
             Context ctx = new InitialContext(props);
-            Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml")); //SPÄTER ENTFERNEN!
+            Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             double breite = ((Node) event.getSource()).getScene().getWidth();
             double hoehe = ((Node) event.getSource()).getScene().getHeight();

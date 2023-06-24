@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
@@ -20,6 +21,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -79,6 +81,22 @@ public class MessagedetailsController implements Initializable {
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
+
+        //BENACHRICHTIGUNGEN-ICON
+        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
+        //WARENKORB-ICON
+        try {
+            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+                warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+            }
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @FXML
@@ -93,6 +111,9 @@ public class MessagedetailsController implements Initializable {
     public void acknowledgeMessage(ActionEvent event) throws IOException, NamingException {
         MessageConsumer messageConsumer = (MessageConsumer) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/MessageConsumerEJB!at.fhv.tvv.shared.ejb.MessageConsumer");
         if(messageConsumer.acknowledgeMessage(TVVApplication.getBenutzerName(), messageDTO.getId())) {
+
+            //LISTE DER MESSAGES IN TVVApplication AKTUALISIEREN
+            TVVApplication.messages = messageConsumer.getMessages(TVVApplication.getBenutzerName());
 
             Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Benachrichtigungen.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

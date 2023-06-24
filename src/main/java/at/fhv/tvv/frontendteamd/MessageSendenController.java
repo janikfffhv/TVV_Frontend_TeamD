@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -77,6 +78,21 @@ public class MessageSendenController implements Initializable {
         try {
             ctx = new InitialContext(props);
         } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
+
+        //BENACHRICHTIGUNGEN-ICON
+        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
+        //WARENKORB-ICON
+        try {
+            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+                warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+            }
+        } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
 

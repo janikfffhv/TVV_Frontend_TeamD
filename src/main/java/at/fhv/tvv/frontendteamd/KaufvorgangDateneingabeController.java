@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -80,6 +81,13 @@ public class KaufvorgangDateneingabeController implements Initializable {
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
+
+        //BENACHRICHTIGUNGEN-ICON
+        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
     }
 
     //HEADER-FUNKTIONEN

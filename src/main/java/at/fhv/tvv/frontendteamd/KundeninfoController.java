@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -23,6 +24,7 @@ import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.Naming;
+import java.rmi.RemoteException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.UUID;
@@ -81,6 +83,21 @@ public class KundeninfoController implements Initializable {
         try {
             ctx = new InitialContext(props);
         } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
+
+        //BENACHRICHTIGUNGEN-ICON
+        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
+        //WARENKORB-ICON
+        try {
+            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+                warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+            }
+        } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
 
@@ -192,12 +209,10 @@ public class KundeninfoController implements Initializable {
                 ticketsTV.getItems().add(event);
             }
 
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
 }

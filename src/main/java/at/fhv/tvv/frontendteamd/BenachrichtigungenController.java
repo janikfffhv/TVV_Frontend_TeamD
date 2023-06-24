@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -24,6 +25,7 @@ import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.Naming;
+import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -122,6 +124,22 @@ public class BenachrichtigungenController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //BENACHRICHTIGUNGEN-ICON
+        if( TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
+        //WARENKORB-ICON
+        try {
+            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+                warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+            }
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     //HEADER-FUNKTIONEN

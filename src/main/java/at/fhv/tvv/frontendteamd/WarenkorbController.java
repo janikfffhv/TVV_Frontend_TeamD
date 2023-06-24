@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
@@ -110,6 +111,21 @@ public class WarenkorbController implements Initializable {
             //ticketsLoeschenButton.setVisible(true);
         }
 
+        //BENACHRICHTIGUNGEN-ICON
+        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
+        //WARENKORB-ICON
+        try {
+            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+                warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+            }
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     //HEADER-FUNKTIONEN
@@ -185,6 +201,10 @@ public class WarenkorbController implements Initializable {
 
         warenkorbTV.getItems().clear();
         TVVApplication.leeren();
+
+        //WARENKORB-ICON AKTUALISIEREN
+        warenkorbBild.setImage(new Image(getClass().getResource("images/Warenkorb.png").toString()));
+
         Notifications.create()
                 .title("Geleert!")
                 .text("Der Warenkorb wurde geleert!")

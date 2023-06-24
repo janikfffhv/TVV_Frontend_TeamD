@@ -46,7 +46,7 @@
     -fx-border-radius: 40, 40, 40, 40;
     -fx-border-width: 3;
 
-    -fx-font-size: 20px;
+    -fx-font-size: 15px;
     -fx-font-family: "Britannic Bold";
 
 }
@@ -146,7 +146,7 @@
 .TextBold { /* Fettgedruckter Text */
 
     -fx-text-background-color: #000000;
-    -fx-font-size: 32px;
+    -fx-font-size: 24px;
     -fx-font-family: "Calibri";
     -fx-font-weight: bold;
 
@@ -155,7 +155,7 @@
 .TextBasic { /* Standardtext */
 
     -fx-text-background-color: #000000;
-    -fx-font-size: 32px;
+    -fx-font-size: 24px;
     -fx-font-family: "Calibri";
 
 }

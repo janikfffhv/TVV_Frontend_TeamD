@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -23,7 +24,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -79,6 +79,22 @@ public class EventinfoController implements Initializable {
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
+
+        //BENACHRICHTIGUNGEN-ICON
+        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+            //Benachrichtigungen-Icon ändern
+            benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
+        }
+
+        //WARENKORB-ICON
+        try {
+            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+                warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+            }
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     //HEADER-FUNKTIONEN
@@ -130,12 +146,12 @@ public class EventinfoController implements Initializable {
     }
 
     @FXML
-    public void sucheKunde(int kundenId) throws IOException {
-        System.out.println("Geöffnet, ID:" + kundenId);
+    public void sucheEvent(int eventId) throws IOException {
+        System.out.println("Geöffnet, ID:" + eventId);
         try {
             EventDescriptionDTO event;
             EventSearch eventSearch = (EventSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/EventSearchEJB!at.fhv.tvv.shared.ejb.EventSearch");
-            event = eventSearch.searchById(kundenId);
+            event = eventSearch.searchById(eventId);
             System.out.println(event.getBeschreibung());
             eventserieLabel.setText(event.getVeranstaltungsserie());
             veranstalterLabel.setText(event.getVeranstalter());
@@ -224,6 +240,14 @@ public class EventinfoController implements Initializable {
                             try {
 
                                 if (TVVApplication.hinzufuegen(warenkorbZeile)) {
+                                    try { //WARENKORB-ICON AKTUALISIEREN
+                                        if(TVVApplication.getWarenkorb().size() == 1) {
+                                            warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
+                                        }
+                                    } catch (RemoteException e) {
+                                        throw new RuntimeException(e);
+                                    }
+
                                     Notifications.create()
                                             .title("Hinzugefügt!")
                                             .text("Ticket Nummer " + platzId.getPlatzId() + " wurde zum Warenkorb hinzugefügt!")
