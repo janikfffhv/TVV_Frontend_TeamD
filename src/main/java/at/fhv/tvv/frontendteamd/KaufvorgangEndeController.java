@@ -7,10 +7,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 public class KaufvorgangEndeController implements Initializable {
@@ -21,7 +23,12 @@ public class KaufvorgangEndeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //Nothing
+        //WARENKORB NACH KAUF LEEREN
+        try {
+            TVVApplication.leeren();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

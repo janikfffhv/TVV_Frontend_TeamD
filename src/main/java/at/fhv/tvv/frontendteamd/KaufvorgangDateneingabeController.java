@@ -73,7 +73,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        zahlungsmethodeCB.setItems(FXCollections.observableArrayList("Kreditkarte", "PayPal", "GooglePay"));
+        zahlungsmethodeCB.setItems(FXCollections.observableArrayList("Kreditkarte", "Rechnung", "Bar"));
         props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
         props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
         try {
