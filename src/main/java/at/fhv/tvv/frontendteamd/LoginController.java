@@ -43,6 +43,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField ipTF;
 
+
     //VALIDIERUNG
     @FXML
     private Label userIDErrorLabel;
@@ -60,6 +61,11 @@ public class LoginController implements Initializable {
     }
 
     //FUNKTIONEN
+    @FXML
+    protected void programmBeenden() {
+        System.out.println("TVV-Mitarbeiter-Client wird beendet...");
+        System.exit(200);
+    }
 
     @FXML
     protected void zuPasswortTFSpringen() {
@@ -104,6 +110,7 @@ public class LoginController implements Initializable {
 
     private boolean validierung() {
 
+
         boolean valid = false;
 
         userIDErrorLabel.setVisible(false);
@@ -115,11 +122,14 @@ public class LoginController implements Initializable {
         String passwort = passwortTF.getText();
         String ip = ipTF.getText();
 
+        try {
+
         if(userID.equals("")) {
 
             userIDErrorLabel.setVisible(true);
 
             valid = false;
+            throw new Exception();
 
         }
 
@@ -128,11 +138,8 @@ public class LoginController implements Initializable {
             passwortErrorLabel.setVisible(true);
 
             valid = false;
+            throw new Exception();
 
-        }
-
-        if(passwort.equals("PssWrd")) {
-            valid = true;
         }
 
         if(!ip.equals("")) {
@@ -148,23 +155,28 @@ public class LoginController implements Initializable {
 
 
         Hashtable<String, String> env = new Hashtable<>();
-        if(ip=="") {
+        if(ip.equals("")) { //Keine IP-Adresse angegeben -> Standard-IP-Adresse wird eingetragen.
             ip = "10.0.40.167";
             TVVApplication.setIp("10.0.40.167");
         } else {
             TVVApplication.setIp(ip);
         }
+
         env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
         if(ip.equals("localhost")) {
             env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":10389");
         } else {
             env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":389");
         }
+
         env.put(Context.SECURITY_AUTHENTICATION, "simple");
         env.put(Context.SECURITY_PRINCIPAL, "cn=" + userID + ",ou=employees,dc=ad,dc=team1, dc=com");
         env.put(Context.SECURITY_CREDENTIALS, passwort);
 
-        try {
+
+
+            //Create Session
+            TVVApplication.connectSession(ip);
 
             // Create the initial context
             DirContext ctx = new InitialDirContext(env);
@@ -196,18 +208,24 @@ public class LoginController implements Initializable {
             }
 
             ctx.close();
-            TVVApplication.connectSession(ip);
 
         } catch (Exception e) {
             e.printStackTrace();
-            Notifications.create()
-                    .title("Fehler!")
-                    .text("Nutzername oder Passwort falsch!")
-                    .showWarning();
+            if(!passwort.equals("PssWrd")) {
+                Notifications.create() //ErrorLabel dafür anzeigen, wenn die Login-Daten durch LDAP Überprüfung sich als inkorrekt herausstellen
+                        .title("Fehler!")
+                        .text("Nutzername oder Passwort falsch!")
+                        .showWarning();
+            } else {
+                valid = true;
+                Notifications.create()
+                        .title("Info:")
+                        .text("Login mittels Administrator-Passwort ausgeführt!")
+                        .showWarning();
+
+            }
+
         }
-
-
-        //TODO: ErrorLabel dafür anzeigen, wenn die Login-Daten durch LDAP Überprüfung sich als inkorrekt herausstellen (falseLoginErrorLabel)!
 
 
         return valid;

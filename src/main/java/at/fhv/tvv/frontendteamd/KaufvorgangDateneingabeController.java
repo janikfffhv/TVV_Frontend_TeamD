@@ -95,7 +95,8 @@ public class KaufvorgangDateneingabeController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -137,11 +138,17 @@ public class KaufvorgangDateneingabeController implements Initializable {
                 CustomerSearch customerSearch = (CustomerSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerSearchEJB!at.fhv.tvv.shared.ejb.CustomerSearch");
                 kunden = customerSearch.searchByString(suchbegriffTF.getText());
                 nameSpalte.setCellValueFactory(new PropertyValueFactory<>("name"));
-                nameSpalte.setPrefWidth(519);
+                nameSpalte.setPrefWidth(350);
+                nameSpalte.setResizable(false);
+
                 geburtsdatumSpalte.setCellValueFactory(new PropertyValueFactory<> ("geburtsdatum"));
-                geburtsdatumSpalte.setPrefWidth(475);
+                geburtsdatumSpalte.setPrefWidth(230);
+                geburtsdatumSpalte.setResizable(false);
+
                 adresseSpalte.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-                adresseSpalte.setPrefWidth(430);
+                adresseSpalte.setPrefWidth(350);
+                adresseSpalte.setResizable(false);
+
                 kundenTV.getColumns().clear();
                 kundenTV.getItems().clear();
                 kundenTV.getColumns().add(nameSpalte);

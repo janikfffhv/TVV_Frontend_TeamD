@@ -127,12 +127,11 @@
                         <Font name="Britannic Bold" size="64.0" />
                      </font>
                   </Label>
-                  <Label layoutX="367.0" layoutY="112.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Klicken Sie auf eine Nachricht in der Liste, um diese anzuzeigen." />
-                  <TableView fx:id="nachrichtenTV" layoutX="274.0" layoutY="180.0" prefHeight="370.0" prefWidth="989.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
+                  <Label layoutX="280.0" layoutY="104.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Klicken Sie auf eine Nachricht in der Liste, um diese anzuzeigen." />
+                  <TableView fx:id="nachrichtenTV" layoutX="289.0" layoutY="179.0" prefHeight="370.0" prefWidth="900.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
                      <columns>
-                        <TableColumn fx:id="themaSpalte" prefWidth="223.19992065429688" text="THEMA" />
-                        <TableColumn fx:id="betreffSpalte" minWidth="0.0" prefWidth="554.3999633789062" text="BETREFF" />
-                        <TableColumn fx:id="zustelldatumSpalte" prefWidth="212.0" text="ZUSTELLDATUM" />
+                        <TableColumn fx:id="themaSpalte" prefWidth="400.0" text="THEMA" />
+                        <TableColumn fx:id="betreffSpalte" minWidth="0.0" prefWidth="500.0" text="BETREFF" />
                      </columns>
                   </TableView>
                   <Button fx:id="messageSendenButton" layoutX="1189.0" layoutY="6.0" mnemonicParsing="false" onAction="#oeffneMessageSenden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="Neue Nachricht verfassen">

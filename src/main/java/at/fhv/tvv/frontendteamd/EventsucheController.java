@@ -125,7 +125,9 @@ public class EventsucheController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
+
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         double breite = ((Node)event.getSource()).getScene().getWidth();
@@ -206,16 +208,31 @@ public class EventsucheController implements Initializable {
                 } else {**/
                     events = eventSearch.searchByString(suchbegriffTF.getText());
                 /**}**/
-                TableColumn<Integer, EventSearchDTO> idSpalte = new TableColumn<> ("Event-ID");
+                TableColumn<Integer, EventSearchDTO> idSpalte = new TableColumn<> ("EVENT-ID");
                 idSpalte.setCellValueFactory(new PropertyValueFactory<>("eventId"));
-                TableColumn<String, EventSearchDTO> eventSpalte = new TableColumn<> ("Event");
+                idSpalte.setPrefWidth(80);
+                idSpalte.setResizable(false);
+
+                TableColumn<String, EventSearchDTO> eventSpalte = new TableColumn<> ("EVENT");
                 eventSpalte.setCellValueFactory(new PropertyValueFactory<>("name"));
-                TableColumn<Integer, EventSearchDTO> terminSpalte = new TableColumn<>("Termin");
+                eventSpalte.setPrefWidth(280);
+
+                TableColumn<Integer, EventSearchDTO> terminSpalte = new TableColumn<>("TERMIN");
                 terminSpalte.setCellValueFactory(new PropertyValueFactory<> ("datum"));
-                TableColumn<String, EventSearchDTO> ortSpalte = new TableColumn<> ("Veranstaltungsort");
+                terminSpalte.setPrefWidth(150);
+                terminSpalte.setResizable(false);
+
+                TableColumn<String, EventSearchDTO> ortSpalte = new TableColumn<> ("VERANSTALTUNGSORT");
                 ortSpalte.setCellValueFactory(new PropertyValueFactory<> ("ort"));
-                TableColumn<Integer, EventSearchDTO> ticketSpalte = new TableColumn<> ("Ticket-Verfügbarkeit");
+                ortSpalte.setPrefWidth(250);
+                ortSpalte.setResizable(false);
+
+                TableColumn<Integer, EventSearchDTO> ticketSpalte = new TableColumn<> ("FREIE TICKETS");
                 ticketSpalte.setCellValueFactory(new PropertyValueFactory<> ("plaetzeVerfuegbar"));
+                ticketSpalte.setPrefWidth(150);
+                ticketSpalte.setResizable(false);
+
+
                 eventsTV.getColumns().clear();
                 eventsTV.getItems().clear();
                 eventsTV.getColumns().add(idSpalte);
@@ -271,16 +288,30 @@ public class EventsucheController implements Initializable {
                     List<EventSearchDTO> events;
                     EventSearch eventSearch = (EventSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/EventSearchEJB!at.fhv.tvv.shared.ejb.EventSearch");
                     events = eventSearch.searchByCategory(kategorieCB.getValue().toUpperCase());
-                    TableColumn<Integer, EventSearchDTO> idSpalte = new TableColumn<> ("Event-ID");
+                    TableColumn<Integer, EventSearchDTO> idSpalte = new TableColumn<> ("EVENT-ID");
                     idSpalte.setCellValueFactory(new PropertyValueFactory<>("eventId"));
-                    TableColumn<String, EventSearchDTO> eventSpalte = new TableColumn<> ("Event");
+                    idSpalte.setPrefWidth(80);
+                    idSpalte.setResizable(false);
+
+                    TableColumn<String, EventSearchDTO> eventSpalte = new TableColumn<> ("EVENT");
                     eventSpalte.setCellValueFactory(new PropertyValueFactory<>("name"));
-                    TableColumn<Integer, EventSearchDTO> terminSpalte = new TableColumn<>("Termin");
+                    eventSpalte.setPrefWidth(280);
+
+                    TableColumn<Integer, EventSearchDTO> terminSpalte = new TableColumn<>("TERMIN");
                     terminSpalte.setCellValueFactory(new PropertyValueFactory<> ("datum"));
-                    TableColumn<String, EventSearchDTO> ortSpalte = new TableColumn<> ("Veranstaltungsort");
+                    terminSpalte.setPrefWidth(150);
+                    terminSpalte.setResizable(false);
+
+                    TableColumn<String, EventSearchDTO> ortSpalte = new TableColumn<> ("VERANSTALTUNGSORT");
                     ortSpalte.setCellValueFactory(new PropertyValueFactory<> ("ort"));
-                    TableColumn<Integer, EventSearchDTO> ticketSpalte = new TableColumn<> ("Ticket-Verfügbarkeit");
+                    ortSpalte.setPrefWidth(250);
+                    ortSpalte.setResizable(false);
+
+                    TableColumn<Integer, EventSearchDTO> ticketSpalte = new TableColumn<> ("FREIE TICKETS");
                     ticketSpalte.setCellValueFactory(new PropertyValueFactory<> ("plaetzeVerfuegbar"));
+                    ticketSpalte.setPrefWidth(150);
+                    ticketSpalte.setResizable(false);
+
                     eventsTV.getColumns().clear();
                     eventsTV.getItems().clear();
                     eventsTV.getColumns().add(idSpalte);
@@ -344,16 +375,30 @@ public class EventsucheController implements Initializable {
                  int search1 = (int) d1.toEpochSecond(LocalTime.MIN, ZoneOffset.UTC);
                  int search2 = (int) d2.toEpochSecond(LocalTime.MIN, ZoneOffset.UTC);
                  events = eventSearch.searchByDate(search1, search2);
-                TableColumn<Integer, EventSearchDTO> idSpalte = new TableColumn<> ("Event-ID");
+                TableColumn<Integer, EventSearchDTO> idSpalte = new TableColumn<> ("EVENT-ID");
                 idSpalte.setCellValueFactory(new PropertyValueFactory<>("eventId"));
-                TableColumn<String, EventSearchDTO> eventSpalte = new TableColumn<> ("Event");
+                idSpalte.setPrefWidth(80);
+                idSpalte.setResizable(false);
+
+                TableColumn<String, EventSearchDTO> eventSpalte = new TableColumn<> ("EVENT");
                 eventSpalte.setCellValueFactory(new PropertyValueFactory<>("name"));
-                TableColumn<Integer, EventSearchDTO> terminSpalte = new TableColumn<>("Termin");
+                eventSpalte.setPrefWidth(280);
+
+                TableColumn<Integer, EventSearchDTO> terminSpalte = new TableColumn<>("TERMIN");
                 terminSpalte.setCellValueFactory(new PropertyValueFactory<> ("datum"));
-                TableColumn<String, EventSearchDTO> ortSpalte = new TableColumn<> ("Veranstaltungsort");
+                terminSpalte.setPrefWidth(150);
+                terminSpalte.setResizable(false);
+
+                TableColumn<String, EventSearchDTO> ortSpalte = new TableColumn<> ("VERANSTALTUNGSORT");
                 ortSpalte.setCellValueFactory(new PropertyValueFactory<> ("ort"));
-                TableColumn<Integer, EventSearchDTO> ticketSpalte = new TableColumn<> ("Ticket-Verfügbarkeit");
+                ortSpalte.setPrefWidth(250);
+                ortSpalte.setResizable(false);
+
+                TableColumn<Integer, EventSearchDTO> ticketSpalte = new TableColumn<> ("FREIE TICKETS");
                 ticketSpalte.setCellValueFactory(new PropertyValueFactory<> ("plaetzeVerfuegbar"));
+                ticketSpalte.setPrefWidth(150);
+                ticketSpalte.setResizable(false);
+
                 eventsTV.getColumns().clear();
                 eventsTV.getItems().clear();
                 eventsTV.getColumns().add(idSpalte);

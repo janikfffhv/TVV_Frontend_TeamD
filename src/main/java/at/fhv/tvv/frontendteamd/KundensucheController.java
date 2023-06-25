@@ -55,14 +55,7 @@ public class KundensucheController implements Initializable {
     @FXML
     private TableView/*<KundenDto>*/ kundenTV; //TODO: KundenDto erstellen
 
-    @FXML
-    private TableColumn nameSpalte;
 
-    @FXML
-    private TableColumn geburtsdatumSpalte;
-
-    @FXML
-    private TableColumn adresseSpalte;
     private static Properties props = new Properties();
     private static Context ctx = null;
 
@@ -101,7 +94,8 @@ public class KundensucheController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -187,17 +181,27 @@ public class KundensucheController implements Initializable {
                 List<CustomerSearchDTO> kunden;
                 CustomerSearch customerSearch = (CustomerSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerSearchEJB!at.fhv.tvv.shared.ejb.CustomerSearch");
                 kunden = customerSearch.searchByString(suchbegriffTF.getText());
-                TableColumn<Integer, CustomerList> idSpalte = new TableColumn<> ("Kunden-ID");
-                idSpalte.setCellValueFactory(new PropertyValueFactory<>("id"));
-                TableColumn<String, CustomerList> nameSpalte = new TableColumn<> ("Name");
+
+                TableColumn<String, CustomerList> nameSpalte = new TableColumn<> ("NAME");
                 nameSpalte.setCellValueFactory(new PropertyValueFactory<>("name"));
-                TableColumn<Integer, CustomerList> datumSpalte = new TableColumn<>("Geburtsdatum");
+                nameSpalte.setPrefWidth(350);
+                nameSpalte.setResizable(false);
+
+                TableColumn<Integer, CustomerList> datumSpalte = new TableColumn<>("GEBURTSDATUM");
                 datumSpalte.setCellValueFactory(new PropertyValueFactory<> ("geburtsdatum"));
+                datumSpalte.setPrefWidth(200);
+                datumSpalte.setResizable(false);
+
+                TableColumn<Integer, CustomerList> adresseSpalte = new TableColumn<> ("ADRESSE");
+                adresseSpalte.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+                adresseSpalte.setPrefWidth(350);
+                adresseSpalte.setResizable(false);
+
                 kundenTV.getColumns().clear();
                 kundenTV.getItems().clear();
-                kundenTV.getColumns().add(idSpalte);
                 kundenTV.getColumns().add(nameSpalte);
                 kundenTV.getColumns().add(datumSpalte);
+                kundenTV.getColumns().add(adresseSpalte);
 
                 kundenTV.setOnMouseClicked((MouseEvent mouseEvent) -> {
                     if(mouseEvent.getClickCount() == 2) {

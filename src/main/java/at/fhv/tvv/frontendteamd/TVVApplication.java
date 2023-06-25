@@ -36,7 +36,7 @@ public class TVVApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(TVVApplication.class.getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml")); //TVV_Eventsuche.fxml
+        FXMLLoader fxmlLoader = new FXMLLoader(TVVApplication.class.getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1500, 700);
 
         Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/at/fhv/tvv/frontendteamd/images/Logo.png")));

@@ -54,7 +54,7 @@ public class KundeninfoController implements Initializable {
 
     //"GEBUCHTE TICKETS"-TABELLE
     @FXML
-    private TableView/*<TicketDto>*/ ticketsTV; //TODO TicketDto erstellen
+    private TableView/*<TicketDto>*/ ticketsTV;
 
     @FXML
     private TableColumn<String, CustomerEventDTO> ticketIDSpalte;
@@ -63,8 +63,6 @@ public class KundeninfoController implements Initializable {
     @FXML
     private TableColumn<Float, CustomerEventDTO> preisSpalte;
 
-    @FXML
-    private TableColumn eventSpalte;
 
     @FXML
     private TableColumn<String, CustomerEventDTO> zahlungsmethodeSpalte;
@@ -108,7 +106,8 @@ public class KundeninfoController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -192,18 +191,22 @@ public class KundeninfoController implements Initializable {
             CustomerTickets customerSearch = (CustomerTickets) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerTicketsEJB!at.fhv.tvv.shared.ejb.CustomerTickets");
             kunde = customerSearch.searchById(kundenId);
             nameLabel.setText(kunde.getName());
-            eventSpalte.setVisible(false);
             geburtsdatumLabel.setText(kunde.getGeburtsdatum());
             adresseLabel.setText(kunde.getAdresse());
             ortLabel.setText(kunde.getOrt());
+
             ticketIDSpalte.setCellValueFactory(new PropertyValueFactory<>("ticketID"));
-            ticketIDSpalte.setPrefWidth(367);
+            ticketIDSpalte.setPrefWidth(150);
+
             zeitpunktSpalte.setCellValueFactory(new PropertyValueFactory<>("verkaufsZeitpunkt"));
-            zeitpunktSpalte.setPrefWidth(367);
+            zeitpunktSpalte.setPrefWidth(200);
+
             preisSpalte.setCellValueFactory(new PropertyValueFactory<>("gesamtPreis"));
-            preisSpalte.setPrefWidth(367);
+            preisSpalte.setPrefWidth(200);
+
             zahlungsmethodeSpalte.setCellValueFactory(new PropertyValueFactory<>("zahlungsmethode"));
-            zahlungsmethodeSpalte.setPrefWidth(367);
+            zahlungsmethodeSpalte.setPrefWidth(250);
+
             ticketsTV.getItems().clear();
             for(CustomerEventDTO event:kunde.getTickets()) {
                 ticketsTV.getItems().add(event);

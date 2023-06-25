@@ -81,13 +81,22 @@ public class BenachrichtigungenController implements Initializable {
 
         //TODO: Nachrichten aus abonnierten Topics einholen und diese in nachrichtenTV auflisten!
         try {
+            //Messages einholen.
             List<MessageDTO> messages;
             MessageConsumer messageConsumer = (MessageConsumer) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/MessageConsumerEJB!at.fhv.tvv.shared.ejb.MessageConsumer");
             messages = messageConsumer.getMessages(TVVApplication.getBenutzerName());
+
+            //Tabelle für Messages generieren.
             TableColumn<String, MessageDTO> themaSpalte = new TableColumn<> ("Thema");
             themaSpalte.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+            themaSpalte.setPrefWidth(400);
+            themaSpalte.setResizable(false);
+
             TableColumn<String, MessageDTO> betreffSpalte = new TableColumn<> ("Betreff");
             betreffSpalte.setCellValueFactory(new PropertyValueFactory<>("title"));
+            betreffSpalte.setPrefWidth(500);
+            betreffSpalte.setResizable(false);
+
             nachrichtenTV.getColumns().clear();
             nachrichtenTV.getItems().clear();
             nachrichtenTV.getColumns().add(themaSpalte);
@@ -147,7 +156,8 @@ public class BenachrichtigungenController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -207,20 +217,6 @@ public class BenachrichtigungenController implements Initializable {
     }
 
     //FUNKTIONEN
-
-    @FXML
-    protected void oeffneMessagedetails(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Messagedetails.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            double breite = ((Node) event.getSource()).getScene().getWidth();
-            double hoehe = ((Node) event.getSource()).getScene().getHeight();
-
-            Scene scene = new Scene(root, breite, hoehe);
-            stage.setScene(scene);
-
-            stage.show();
-
-    }
 
     @FXML
     protected void oeffneAboEinstellungen(ActionEvent event) throws IOException {

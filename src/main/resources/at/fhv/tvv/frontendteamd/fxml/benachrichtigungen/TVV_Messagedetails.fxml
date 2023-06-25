@@ -128,7 +128,7 @@
                      </font>
                   </Label>
                   <Label fx:id="ticketsStorniertLabel" layoutX="89.0" layoutY="332.0" prefHeight="32.0" prefWidth="314.0" styleClass="ConfirmText" stylesheets="@../../css/TVV.css" text="Ticket(s) erfolgreich storniert!" visible="false" />
-                  <Label fx:id="themaLabel" layoutX="253.0" layoutY="213.0" prefHeight="0.0" prefWidth="270.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="System" />
+                  <Label fx:id="themaLabel" layoutX="253.0" layoutY="218.0" prefHeight="0.0" prefWidth="270.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="System" />
                   <Label layoutX="134.0" layoutY="215.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Thema:" />
                   <Button layoutX="48.0" layoutY="3.0" mnemonicParsing="false" onAction="#zurueck" styleClass="SecondaryButton" stylesheets="@../../css/TVV.css" text="Zurück">
                      <graphic>
@@ -139,12 +139,12 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="148.0" layoutY="265.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Autor:" />
-                  <Label fx:id="autorLabel" layoutX="253.0" layoutY="263.0" prefHeight="22.0" prefWidth="270.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="Max Mustermann" />
-                  <Label layoutX="61.0" layoutY="315.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="verfasst am:" />
-                  <Label fx:id="bisDatumTextLabel" layoutX="35.0" layoutY="359.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="verfügbar bis:" />
-                  <Label fx:id="vonDatumLabel" layoutX="253.0" layoutY="314.0" prefHeight="22.0" prefWidth="200.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="01.01.1970" />
-                  <Label fx:id="bisDatumLabel" layoutX="253.0" layoutY="358.0" prefHeight="22.0" prefWidth="200.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="01.01.1971" />
+                  <Label layoutX="134.0" layoutY="265.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Autor:" visible="false" />
+                  <Label fx:id="autorLabel" layoutX="253.0" layoutY="268.0" prefHeight="22.0" prefWidth="270.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="Max Mustermann" visible="false" />
+                  <Label layoutX="61.0" layoutY="315.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="verfasst am:" visible="false" />
+                  <Label fx:id="bisDatumTextLabel" layoutX="35.0" layoutY="359.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="verfügbar bis:" visible="false" />
+                  <Label fx:id="vonDatumLabel" layoutX="253.0" layoutY="314.0" prefHeight="22.0" prefWidth="200.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="01.01.1970" visible="false" />
+                  <Label fx:id="bisDatumLabel" layoutX="253.0" layoutY="358.0" prefHeight="22.0" prefWidth="200.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="01.01.1971" visible="false" />
                   <TextArea fx:id="inhaltTA" editable="false" layoutX="565.0" layoutY="174.0" prefHeight="292.0" prefWidth="876.0" styleClass="table-column" stylesheets="@../../css/TVV.css" wrapText="true">
                      <font>
                         <Font name="Calibri" size="20.0" />

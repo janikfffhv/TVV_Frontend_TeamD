@@ -139,10 +139,9 @@
                   </Button>
                   <Label layoutX="353.0" layoutY="130.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Wählen Sie diejenigen Themen aus, die Sie abonnieren möchten:" />
                   <Button layoutX="639.0" layoutY="451.0" mnemonicParsing="false" onAction="#themenSpeichern" styleClass="ConfirmButton" stylesheets="@../../css/TVV.css" text="SPEICHERN" />
-                  <CheckBox fx:id="kinoCheckbox" layoutX="550.0" layoutY="195.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kino" />
-                  <CheckBox fx:id="theaterCheckbox" layoutX="550.0" layoutY="275.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Theater" />
-                  <CheckBox fx:id="konzertCheckbox" layoutX="550.0" layoutY="355.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Konzert" />
-                  <CheckBox disable="true" layoutX="850.0" layoutY="275.0" mnemonicParsing="false" selected="true" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="System" />
+                  <CheckBox fx:id="kinoCheckbox" layoutX="692.0" layoutY="195.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kino" />
+                  <CheckBox fx:id="theaterCheckbox" layoutX="692.0" layoutY="275.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Theater" />
+                  <CheckBox fx:id="konzertCheckbox" layoutX="692.0" layoutY="355.0" mnemonicParsing="false" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Konzert" />
                </children>
             </AnchorPane>
          </content>
