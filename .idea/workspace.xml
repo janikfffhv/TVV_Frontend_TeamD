@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="IP Implementation / EJB Bugfixes">
+    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="Some Bugfixes Here, some bugfixes there">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessagedetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessagedetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Messagedetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Messagedetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,23 +31,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Janik/IdeaProjects/frontendteamd/src/main/java/at/fhv/tvv/frontendteamd&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Janik/IdeaProjects/frontendteamd/src/main/java/at/fhv/tvv/frontendteamd",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Janik\IdeaProjects\frontendteamd\src\main\java\at\fhv\tvv\frontendteamd" />
@@ -131,7 +130,13 @@
       <workItem from="1684242974144" duration="9794000" />
       <workItem from="1684316561687" duration="3508000" />
       <workItem from="1684330894732" duration="2096000" />
-      <workItem from="1684697758702" duration="8621000" />
+      <workItem from="1684697758702" duration="9359000" />
+      <workItem from="1684851995314" duration="1922000" />
+      <workItem from="1684854486169" duration="647000" />
+      <workItem from="1684917441280" duration="2039000" />
+      <workItem from="1686133392523" duration="713000" />
+      <workItem from="1687435483599" duration="1027000" />
+      <workItem from="1687636912930" duration="9705000" />
     </task>
     <task id="LOCAL-00001" summary="EJB Implementation">
       <created>1684249596183</created>
@@ -147,15 +152,49 @@
       <option name="project" value="LOCAL" />
       <updated>1684331314521</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Some Bugfixes Here, some bugfixes there">
+      <created>1684760914669</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684760914669</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="EJB Implementation" />
     <MESSAGE value="IP Implementation / EJB Bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="IP Implementation / EJB Bugfixes" />
+    <MESSAGE value="Some Bugfixes Here, some bugfixes there" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some Bugfixes Here, some bugfixes there" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/module-info.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

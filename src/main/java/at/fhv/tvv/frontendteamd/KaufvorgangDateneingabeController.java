@@ -130,6 +130,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
     protected void sucheKunden(ActionEvent event) throws IOException {
 
         //Methode aus Domain Layer aufrufen, welche die Event-Suche einleitet.
+        System.out.println("Tried!");
 
         if(suchbegriffValidierung()) {
             try {
