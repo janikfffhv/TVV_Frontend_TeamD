@@ -137,13 +137,13 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="kassaButton" layoutX="650.0" layoutY="516.0" mnemonicParsing="false" onAction="#zurKassaGehen" styleClass="ConfirmButton" stylesheets="@../../css/TVV.css" text="ZUR KASSA" visible="false" />
-                  <TableView fx:id="warenkorbTV" layoutX="258.0" layoutY="116.0" prefHeight="290.0" prefWidth="1338.0" stylesheets="@../../css/TVV.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+                  <Button fx:id="kassaButton" layoutX="650.0" layoutY="507.0" mnemonicParsing="false" onAction="#zurKassaGehen" styleClass="ConfirmButton" stylesheets="@../../css/TVV.css" text="ZUR KASSA" visible="false" />
+                  <TableView fx:id="warenkorbTV" layoutX="108.0" layoutY="119.0" prefHeight="290.0" prefWidth="1300.0" stylesheets="@../../css/TVV.css">
                      <columns>
-                        <TableColumn fx:id="eventSpalte" prefWidth="523.1999969482422" text="EVENT" />
-                        <TableColumn fx:id="terminSpalte" prefWidth="234.4000244140625" text="TERMIN" />
-                        <TableColumn fx:id="platzSpalte" prefWidth="371.99993896484375" text="PLATZ" />
-                        <TableColumn fx:id="preisSpalte" prefWidth="211.2000732421875" text="PREIS" />
+                        <TableColumn fx:id="eventSpalte" prefWidth="550.0" text="EVENT" />
+                        <TableColumn fx:id="terminSpalte" prefWidth="250.0" text="TERMIN" />
+                        <TableColumn fx:id="platzSpalte" prefWidth="200.0" text="PLATZ" />
+                        <TableColumn fx:id="preisSpalte" prefWidth="300.0" text="PREIS" />
                      </columns>
                   </TableView>
                   <Label fx:id="preisTextLabel" layoutX="713.0" layoutY="456.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="GESAMT" visible="false" />

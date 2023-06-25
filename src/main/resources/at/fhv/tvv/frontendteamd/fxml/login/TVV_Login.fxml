@@ -56,6 +56,15 @@
                   </Label>
                </children>
             </AnchorPane>
+            <Button alignment="TOP_LEFT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="1328.0" layoutY="42.0" mnemonicParsing="false" onAction="#programmBeenden" styleClass="DeleteButton" stylesheets="@../../css/TVV.css" text="Programm beenden">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="50.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
       <ScrollPane layoutX="10.0" layoutY="190.0" prefHeight="571.0" prefWidth="1521.0" styleClass="ScrollArea" stylesheets="@../../css/TVV.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="190.0">

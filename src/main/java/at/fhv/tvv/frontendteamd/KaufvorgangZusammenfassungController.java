@@ -88,13 +88,20 @@ public class KaufvorgangZusammenfassungController implements Initializable {
             throw new RuntimeException(e);
         }
         eventSpalte.setCellValueFactory(new PropertyValueFactory<>("eventName"));
-        eventSpalte.setPrefWidth(367);
+        eventSpalte.setPrefWidth(370);
+
         terminSpalte.setCellValueFactory(new PropertyValueFactory<>("termin"));
-        terminSpalte.setPrefWidth(367);
+        terminSpalte.setPrefWidth(150);
+        terminSpalte.setResizable(false);
+
         platzSpalte.setCellValueFactory(new PropertyValueFactory<> ("platzId"));
-        platzSpalte.setPrefWidth(367);
+        platzSpalte.setPrefWidth(150);
+        platzSpalte.setResizable(false);
+
         preisSpalte.setCellValueFactory(new PropertyValueFactory<> ("preis"));
-        preisSpalte.setPrefWidth(367);
+        preisSpalte.setPrefWidth(200);
+        preisSpalte.setResizable(false);
+
         warenkorbTV.getColumns().clear();
         warenkorbTV.getItems().clear();
         warenkorbTV.getColumns().add(eventSpalte);
@@ -137,7 +144,8 @@ public class KaufvorgangZusammenfassungController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

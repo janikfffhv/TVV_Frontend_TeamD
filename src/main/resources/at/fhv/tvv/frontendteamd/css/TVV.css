@@ -146,7 +146,7 @@
 .TextBold { /* Fettgedruckter Text */
 
     -fx-text-background-color: #000000;
-    -fx-font-size: 24px;
+    -fx-font-size: 22px;
     -fx-font-family: "Calibri";
     -fx-font-weight: bold;
 
@@ -155,7 +155,7 @@
 .TextBasic { /* Standardtext */
 
     -fx-text-background-color: #000000;
-    -fx-font-size: 24px;
+    -fx-font-size: 22px;
     -fx-font-family: "Calibri";
 
 }
@@ -163,7 +163,7 @@
 .NotificationText { /* Text, der bei einer Benachrichtigung (z.B. Validierung hat Fehler erkannt) angezeigt wird */
 
     -fx-text-background-color: #ff0000;
-    -fx-font-size: 25px;
+    -fx-font-size: 20px;
     -fx-font-family: "Calibri";
     -fx-font-weight: bold;
 

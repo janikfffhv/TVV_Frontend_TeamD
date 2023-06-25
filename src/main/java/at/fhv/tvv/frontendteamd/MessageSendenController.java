@@ -46,8 +46,6 @@ public class MessageSendenController implements Initializable {
     @FXML
     private CheckBox konzertCheckbox;
     @FXML
-    private CheckBox systemCheckbox;
-    @FXML
     private TextField betreffTF;
     @FXML
     private DatePicker bisDatumDP;
@@ -103,7 +101,8 @@ public class MessageSendenController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -219,7 +218,7 @@ public class MessageSendenController implements Initializable {
 
         LocalDate datumbis = bisDatumDP.getValue();
 
-        if(!kinoCheckbox.isSelected() && !theaterCheckbox.isSelected() && !konzertCheckbox.isSelected() && !systemCheckbox.isSelected()) {
+        if(!kinoCheckbox.isSelected() && !theaterCheckbox.isSelected() && !konzertCheckbox.isSelected()) {
 
             themaErrorLabel.setVisible(true);
             valid = false;

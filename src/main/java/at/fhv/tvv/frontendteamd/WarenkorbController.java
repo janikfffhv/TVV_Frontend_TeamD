@@ -77,13 +77,21 @@ public class WarenkorbController implements Initializable {
 
         float preisGesamt = 0;
         eventSpalte.setCellValueFactory(new PropertyValueFactory<>("eventName"));
-        eventSpalte.setPrefWidth(367);
+        eventSpalte.setPrefWidth(550);
+
         terminSpalte.setCellValueFactory(new PropertyValueFactory<>("termin"));
-        terminSpalte.setPrefWidth(367);
+        terminSpalte.setPrefWidth(250);
+        terminSpalte.setResizable(false);
+
         platzSpalte.setCellValueFactory(new PropertyValueFactory<> ("platzId"));
-        platzSpalte.setPrefWidth(367);
+        platzSpalte.setPrefWidth(200);
+        platzSpalte.setResizable(false);
+
         preisSpalte.setCellValueFactory(new PropertyValueFactory<> ("preis"));
-        preisSpalte.setPrefWidth(367);
+        preisSpalte.setPrefWidth(300);
+        preisSpalte.setResizable(false);
+
+
         warenkorbTV.getColumns().clear();
         warenkorbTV.getItems().clear();
         warenkorbTV.getColumns().add(eventSpalte);
@@ -133,7 +141,8 @@ public class WarenkorbController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

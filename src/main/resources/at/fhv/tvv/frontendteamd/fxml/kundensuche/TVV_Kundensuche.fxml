@@ -128,8 +128,7 @@
                         <Font name="Britannic Bold" size="64.0" />
                      </font>
                   </Label>
-                  <Label layoutX="50.0" layoutY="179.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchbegriff:" />
-                  <TextField fx:id="suchbegriffTF" layoutX="50.0" layoutY="214.0" onAction="#sucheKunden" prefHeight="34.0" prefWidth="342.0" promptText="z.B. Name, PLZ, Ort, Geburtsdatum,..." styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                  <TextField fx:id="suchbegriffTF" layoutX="50.0" layoutY="214.0" onAction="#sucheKunden" prefHeight="34.0" prefWidth="342.0" promptText="Vorname, oder Nachname, oder beides..." styleClass="InputField" stylesheets="@../../css/TVV.css" />
                   <Button layoutX="415.0" layoutY="205.0" mnemonicParsing="false" onAction="#sucheKunden" styleClass="SearchButton" stylesheets="@../../css/TVV.css" text="SUCHEN">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
@@ -139,15 +138,17 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <TableView fx:id="kundenTV" layoutX="599.0" layoutY="146.0" prefHeight="410.0" prefWidth="882.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
+                  <TableView fx:id="kundenTV" layoutX="584.0" layoutY="145.0" prefHeight="410.0" prefWidth="900.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
                      <columns>
-                        <TableColumn fx:id="nameSpalte" prefWidth="330.39996337890625" text="NAME" />
-                        <TableColumn fx:id="geburtsdatumSpalte" minWidth="0.0" prefWidth="184.0" text="GEBURTSDATUM" />
-                        <TableColumn fx:id="adresseSpalte" prefWidth="369.60009765625" text="ADRESSE" />
+                        <TableColumn fx:id="nameSpalte" prefWidth="350.0" text="NAME" />
+                        <TableColumn fx:id="geburtsdatumSpalte" minWidth="0.0" prefWidth="200.0" text="GEBURTSDATUM" />
+                        <TableColumn fx:id="adresseSpalte" prefWidth="350.0" text="ADRESSE" />
                      </columns>
                   </TableView>
-                  <Label layoutX="928.0" layoutY="111.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchergebnisse" />
+                  <Label layoutX="922.0" layoutY="110.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Suchergebnisse" />
                   <Label fx:id="suchbegriffErrorLabel" layoutX="50.0" layoutY="248.0" prefHeight="146.0" prefWidth="422.0" styleClass="NotificationText" stylesheets="@../../css/TVV.css" text="Ungültiger Suchbegriff! Muss mind. 3 Zeichen lang sein. Keine Sonderzeichen (ausgenommen -) erlaubt!" visible="false" wrapText="true" />
+                  <Label layoutX="49.0" layoutY="159.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kundenname:" />
+                  <Label layoutX="53.0" layoutY="193.0" styleClass="text-field" stylesheets="@../../css/TVV.css" text="(Achten Sie auf Groß- und Kleinschreibung)" />
                </children>
             </AnchorPane>
          </content>

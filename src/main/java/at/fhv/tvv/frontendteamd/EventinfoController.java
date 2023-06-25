@@ -102,7 +102,8 @@ public class EventinfoController implements Initializable {
     @FXML
     protected void logout(ActionEvent event) throws IOException {
 
-        //TODO: Angemeldeten User ausloggen
+        //Angemeldeten User ausloggen -> Warenkorb leeren
+        TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -199,22 +200,25 @@ public class EventinfoController implements Initializable {
 
             TableColumn<Integer, PlatzDTO> reiheSpalte = new TableColumn<> ("Reihe");
             reiheSpalte.setCellValueFactory(new PropertyValueFactory<>("reihe"));
-            reiheSpalte.setPrefWidth(367);
+            reiheSpalte.setPrefWidth(150);
+            reiheSpalte.setResizable(false);
+
             TableColumn<String, PlatzDTO> platzSpalte = new TableColumn<> ("Platz");
             platzSpalte.setCellValueFactory(new PropertyValueFactory<>("nummer"));
-            platzSpalte.setPrefWidth(367);
+            platzSpalte.setPrefWidth(150);
+            platzSpalte.setResizable(false);
+
             TableColumn<Integer, PlatzDTO> preisSpalte = new TableColumn<>("Preis");
             preisSpalte.setCellValueFactory(new PropertyValueFactory<> ("preis"));
-            preisSpalte.setPrefWidth(367);
-            TableColumn<Integer, PlatzDTO> addSpalte = new TableColumn<> ("Hinzufügen");
-            addSpalte.setText("Hinzufügen");
-            addSpalte.setPrefWidth(367);
+            preisSpalte.setPrefWidth(200);
+            preisSpalte.setResizable(false);
+
             eventTicketTV.getColumns().clear();
             eventTicketTV.getItems().clear();
             eventTicketTV.getColumns().add(reiheSpalte);
             eventTicketTV.getColumns().add(platzSpalte);
             eventTicketTV.getColumns().add(preisSpalte);
-            eventTicketTV.getColumns().add(addSpalte);
+
 
             eventTicketTV.setOnMouseClicked((MouseEvent mouseEvent) -> {
                 if(mouseEvent.getClickCount() == 2) {

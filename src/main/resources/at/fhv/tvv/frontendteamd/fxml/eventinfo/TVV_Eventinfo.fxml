@@ -29,37 +29,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <AnchorPane layoutX="529.0" layoutY="25.0">
-               <children>
-                  <Label layoutX="102.0" layoutY="3.0" prefHeight="152.0" prefWidth="328.0" text="TVV">
-                     <font>
-                        <Font name="Britannic Bold" size="170.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="167.0" layoutY="131.0" text="icket">
-                     <font>
-                        <Font name="Britannic Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="252.0" layoutY="131.0" text="erkauf">
-                     <font>
-                        <Font name="Britannic Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="342.0" layoutY="131.0" text="orarlberg">
-                     <font>
-                        <Font name="Britannic Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutY="149.0" text="---------------------------------------------------------------------------------------------------------" />
-                  <Label layoutX="159.0" layoutY="158.0" text="KINO --- THEATER --- KONZERT">
-                     <font>
-                        <Font name="Calibri" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <Button graphicTextGap="0.0" layoutX="1352.0" layoutY="124.0" mnemonicParsing="false" onAction="#oeffneWarenkorb" prefHeight="76.0" prefWidth="162.0" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="Warenkorb" textAlignment="RIGHT">
+            <Button graphicTextGap="0.0" layoutX="1352.0" layoutY="124.0" mnemonicParsing="false" onAction="#oeffneWarenkorb" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="Warenkorb" textAlignment="RIGHT">
                <graphic>
                   <ImageView fx:id="warenkorbBild" fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -83,7 +53,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button graphicTextGap="0.0" layoutX="286.0" layoutY="124.0" mnemonicParsing="false" onAction="#oeffneKundensuche" prefHeight="69.0" prefWidth="172.0" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="Kundensuche" textAlignment="RIGHT">
+            <Button graphicTextGap="0.0" layoutX="286.0" layoutY="124.0" mnemonicParsing="false" onAction="#oeffneKundensuche" styleClass="HeaderButton" stylesheets="@../../css/TVV.css" text="Kundensuche" textAlignment="RIGHT">
                <font>
                   <Font name="Britannic Bold" size="14.0" />
                </font>
@@ -119,32 +89,62 @@
                   </ImageView>
                </graphic>
             </Button>
+            <AnchorPane layoutX="529.0" layoutY="25.0">
+               <children>
+                  <Label layoutX="103.0" text="TVV">
+                     <font>
+                        <Font name="Britannic Bold" size="170.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="167.0" layoutY="131.0" text="icket">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="252.0" layoutY="131.0" text="erkauf">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="131.0" text="orarlberg">
+                     <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="149.0" text="---------------------------------------------------------------------------------------------------------" />
+                  <Label layoutX="159.0" layoutY="158.0" text="KINO --- THEATER --- KONZERT">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <ScrollPane layoutX="10.0" layoutY="190.0" prefHeight="612.0" prefWidth="1518.0" styleClass="ScrollArea" stylesheets="@../../css/TVV.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="190.0">
          <content>
             <AnchorPane prefHeight="590.0" prefWidth="1540.0" styleClass="Background" stylesheets="@../../css/TVV.css">
                <children>
-                  <Label fx:id="eventnameLabel" alignment="CENTER" layoutX="203.0" layoutY="-2.0" prefHeight="66.0" prefWidth="1134.0" styleClass="MainHeading" stylesheets="@../../css/TVV.css" text="Alles im Butter...Wie immer? KA.">
+                  <Label fx:id="eventnameLabel" alignment="CENTER" layoutX="203.0" layoutY="-2.0" prefHeight="66.0" prefWidth="1235.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Alles im Butter...Wie immer? KA.">
                      <font>
                         <Font name="Britannic Bold" size="64.0" />
                      </font>
                   </Label>
                   <Separator layoutX="-2.0" layoutY="56.0" prefHeight="20.0" prefWidth="1537.0" />
-                  <Label layoutX="65.0" layoutY="127.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="gehört zu:" />
-                  <Label fx:id="eventserieLabel" layoutX="223.0" layoutY="125.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstaltungsserie" />
-                  <Label layoutX="65.0" layoutY="177.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="organisiert von:" />
-                  <Label fx:id="veranstalterLabel" layoutX="302.0" layoutY="175.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstalter" />
-                  <Label layoutX="715.0" layoutY="104.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="TERMIN:" />
-                  <Label fx:id="datumLabel" alignment="CENTER" layoutX="615.0" layoutY="149.0" prefHeight="2.0" prefWidth="310.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="01.07.2023 - 14:00 Uhr" />
-                  <Label fx:id="eventortLabel" alignment="CENTER" layoutX="613.0" layoutY="194.0" prefHeight="38.0" prefWidth="307.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="Veranstaltungsort" />
-                  <Label fx:id="strasseLabel" alignment="CENTER" layoutX="616.0" layoutY="230.0" prefHeight="18.0" prefWidth="300.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Straße + Hausnummer" />
-                  <Label fx:id="plzortLabel" alignment="CENTER" layoutX="616.0" layoutY="260.0" prefHeight="18.0" prefWidth="300.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="PLZ + Ort" />
-                  <Label layoutX="65.0" layoutY="227.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kategorie:" />
-                  <Label fx:id="kategorieLabel" layoutX="223.0" layoutY="225.0" prefHeight="38.0" prefWidth="280.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Konzert" />
+                  <Label layoutX="35.0" layoutY="89.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="gehört zu:" />
+                  <Label fx:id="eventserieLabel" alignment="TOP_LEFT" layoutX="193.0" layoutY="94.0" prefHeight="58.0" prefWidth="361.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstaltungsserie" wrapText="true" />
+                  <Label layoutX="35.0" layoutY="170.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="organisiert von:" />
+                  <Label fx:id="veranstalterLabel" alignment="TOP_LEFT" layoutX="267.0" layoutY="178.0" prefHeight="60.0" prefWidth="292.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Veranstalter" wrapText="true" />
+                  <Label layoutX="697.0" layoutY="87.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="TERMIN:" />
+                  <Label fx:id="datumLabel" alignment="CENTER" layoutX="599.0" layoutY="123.0" prefHeight="2.0" prefWidth="310.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="01.07.2023 - 14:00 Uhr" />
+                  <Label fx:id="eventortLabel" alignment="TOP_CENTER" layoutX="593.0" layoutY="162.0" prefHeight="50.0" prefWidth="315.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="Veranstaltungsort" wrapText="true" />
+                  <Label fx:id="strasseLabel" alignment="TOP_CENTER" layoutX="600.0" layoutY="222.0" prefHeight="50.0" prefWidth="304.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Straße + Hausnummer" wrapText="true" />
+                  <Label fx:id="plzortLabel" alignment="CENTER" layoutX="595.0" layoutY="274.0" prefHeight="26.0" prefWidth="316.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="PLZ + Ort" />
+                  <Label layoutX="33.0" layoutY="256.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Kategorie:" />
+                  <Label fx:id="kategorieLabel" layoutX="193.0" layoutY="254.0" prefHeight="38.0" prefWidth="269.0" styleClass="TextBasic" stylesheets="@../../css/TVV.css" text="Konzert" />
                   <Separator layoutX="1.0" layoutY="302.0" prefHeight="10.0" prefWidth="1538.0" />
-                  <Label fx:id="platzArtLabel" layoutX="65.0" layoutY="392.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Platzart:" />
-                  <ChoiceBox fx:id="platzartCB" layoutX="210.0" layoutY="389.0" prefHeight="34.0" prefWidth="226.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
+                  <Label fx:id="platzArtLabel" layoutX="581.0" layoutY="423.0" styleClass="TextBold" stylesheets="@../../css/TVV.css" text="Platzart:" />
+                  <ChoiceBox fx:id="platzartCB" layoutX="664.0" layoutY="419.0" prefHeight="34.0" prefWidth="226.0" styleClass="InputField" stylesheets="@../../css/TVV.css" />
                   <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#zurueckZurSuche" styleClass="SecondaryButton" stylesheets="@../../css/TVV.css" text="Zurück zur Suche">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
@@ -154,17 +154,17 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <TableView fx:id="eventTicketTV" layoutX="558.0" layoutY="329.0" prefHeight="243.0" prefWidth="890.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
+                  <TableView fx:id="eventTicketTV" layoutX="932.0" layoutY="332.0" prefHeight="243.0" prefWidth="500.0" styleClass="EventTable" stylesheets="@../../css/TVV.css">
                      <columns>
-                        <TableColumn fx:id="reiheSpalte" prefWidth="219.99996948242188" text="REIHE" />
-                        <TableColumn fx:id="platzSpalte" minWidth="0.0" prefWidth="222.4000244140625" text="PLATZ" />
-                        <TableColumn fx:id="preisSpalte" prefWidth="229.59994506835938" text="PREIS" />
-                        <TableColumn fx:id="addSpalte" prefWidth="216.80002441406248" text="HINZUFÜGEN" />
+                        <TableColumn fx:id="reiheSpalte" prefWidth="150.0" text="REIHE" />
+                        <TableColumn fx:id="platzSpalte" minWidth="0.0" prefWidth="150.0" text="PLATZ" />
+                        <TableColumn fx:id="preisSpalte" minWidth="165.5999755859375" prefWidth="200.0" text="PREIS" />
                      </columns>
                   </TableView>
-                  <Separator layoutX="602.0" layoutY="70.0" orientation="VERTICAL" prefHeight="232.0" prefWidth="6.0" />
+                  <Separator layoutX="577.0" layoutY="70.0" orientation="VERTICAL" prefHeight="232.0" prefWidth="6.0" />
                   <Separator layoutX="925.0" layoutY="70.0" orientation="VERTICAL" prefHeight="232.0" prefWidth="7.0" />
                   <TextArea fx:id="beschreibungTA" editable="false" layoutX="955.0" layoutY="87.0" prefHeight="200.0" prefWidth="519.0" styleClass="table-column" stylesheets="@../../css/TVV.css" wrapText="true" />
+                  <Label fx:id="platzArtLabel1" layoutX="533.0" layoutY="377.0" styleClass="InputFieldHeading" stylesheets="@../../css/TVV.css" text="Freie Plätze:" />
                </children>
             </AnchorPane>
          </content>
