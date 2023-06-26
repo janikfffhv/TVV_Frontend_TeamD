@@ -36,18 +36,6 @@
             <version>11.0.2</version>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-all</artifactId>
             <version>5.17.0</version>
@@ -59,17 +47,7 @@
             <type>pom</type>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-naming-client -->
-        <dependency>
-            <groupId>org.wildfly</groupId>
-            <artifactId>wildfly-naming-client</artifactId>
-            <version>1.0.15.Final</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jboss/jboss-ejb-client -->
-        <dependency>
-            <groupId>org.jboss</groupId>
-            <artifactId>jboss-ejb-client</artifactId>
-            <version>4.0.44.Final</version>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
         <dependency>
             <groupId>at.fhv.tvv</groupId>
@@ -77,6 +55,12 @@
             <version>1.0-SNAPSHOT</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/shared-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.5.0</version>
+            <type>maven-plugin</type>
         </dependency>
     </dependencies>
 
@@ -111,6 +95,28 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>at.fhv.tvv.frontendteamd.TVVApplication_Capsuled</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin> <groupId>com.googlecode.addjars-maven-plugin</groupId> <artifactId>addjars-maven-plugin</artifactId> <version>1.0.5</version> <executions> <execution> <goals> <goal>add-jars</goal> </goals> <configuration> <resources> <resource> <directory>${basedir}/lib</directory> </resource> </resources> </configuration> </execution> </executions> </plugin>
         </plugins>
     </build>
 </project>

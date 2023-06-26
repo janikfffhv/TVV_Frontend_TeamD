@@ -190,6 +190,7 @@ public class KundeninfoController implements Initializable {
             CustomerInfoDTO kunde;
             CustomerTickets customerSearch = (CustomerTickets) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerTicketsEJB!at.fhv.tvv.shared.ejb.CustomerTickets");
             kunde = customerSearch.searchById(kundenId);
+            System.out.println(kunde.getName());
             nameLabel.setText(kunde.getName());
             geburtsdatumLabel.setText(kunde.getGeburtsdatum());
             adresseLabel.setText(kunde.getAdresse());
