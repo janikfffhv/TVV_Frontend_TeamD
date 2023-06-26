@@ -66,9 +66,9 @@ public class AboEinstellungenController implements Initializable {
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
-        //TODO: Kontrollieren, welche Themen der User bereits abonniert hat. Die Checkboxen der bereits abonnierten Themen
-        //TODO: sollen bei Seitenaufruf sofort ausgewählt sein (z.B. kinoCheckbox.setSelected(true)).
-        //TODO: Die dazugehörigen boolean-Variablen sollen dann auf true gesetzt werden (z.B. kinoBereitsAbonniert = true).
+        //Kontrollieren, welche Themen der User bereits abonniert hat. Die Checkboxen der bereits abonnierten Themen
+        //sollen bei Seitenaufruf sofort ausgewählt sein (z.B. kinoCheckbox.setSelected(true)).
+        //Die dazugehörigen boolean-Variablen sollen dann auf true gesetzt werden (z.B. kinoBereitsAbonniert = true).
         try {
             List<String> topics = TVVApplication.getTopics();
             if(topics.contains("KINO")) {
