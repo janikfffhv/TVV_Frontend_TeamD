@@ -72,16 +72,16 @@ public class AboEinstellungenController implements Initializable {
         try {
             List<String> topics = TVVApplication.getTopics();
             if(topics.contains("KINO")) {
-                kinoCheckbox.setSelected(true); //Test - später löschen!
-                kinoBereitsAbonniert = true; //Test - später löschen!
+                kinoCheckbox.setSelected(true);
+                kinoBereitsAbonniert = true;
             }
             if(topics.contains("THEATER")) {
-                theaterCheckbox.setSelected(true); //Test - später löschen!
-                theaterBereitsAbonniert = true; //Test - später löschen!
+                theaterCheckbox.setSelected(true);
+                theaterBereitsAbonniert = true;
             }
             if(topics.contains("KONZERT")) {
-                konzertCheckbox.setSelected(true); //Test - später löschen!
-                konzertBereitsAbonniert = true; //Test - später löschen!
+                konzertCheckbox.setSelected(true);
+                konzertBereitsAbonniert = true;
             }
         } catch (RemoteException e) {
             throw new RuntimeException(e);
@@ -234,7 +234,6 @@ public class AboEinstellungenController implements Initializable {
 
             }
 
-            //SYSTEM IST BEI JEDEM USER IMMER FIX ABONNIERT!
             String username = TVVApplication.getBenutzerName();
             try {
                 RolesTopics rolesTopics = (RolesTopics) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/RolesTopicsEJB!at.fhv.tvv.shared.ejb.RolesTopics");
