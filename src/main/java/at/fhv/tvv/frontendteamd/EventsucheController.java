@@ -265,8 +265,10 @@ public class EventsucheController implements Initializable {
                 });
 
                 for(EventSearchDTO event1 : events) {
-                    EventList event2 = new EventList(event1.getEventId(), event1.getName(), event1.getVeranstaltungsserie(), event1.getDatum(), event1.getOrt(), event1.getPlaetzeVerfuegbar());
-                    eventsTV.getItems().add(event2);
+                    if(event1.getDatum() > System.currentTimeMillis()/1000L) {
+                        EventList event2 = new EventList(event1.getEventId(), event1.getName(), event1.getVeranstaltungsserie(), event1.getDatum(), event1.getOrt(), event1.getPlaetzeVerfuegbar());
+                        eventsTV.getItems().add(event2);
+                    }
                 }
 
             } catch (Exception e) {

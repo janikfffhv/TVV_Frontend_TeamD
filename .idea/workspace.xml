@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="Fat JAR Creation">
+    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="Final Commit">
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/benachrichtigungen/TVV_AboEinstellungen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/benachrichtigungen/TVV_Benachrichtigungen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/benachrichtigungen/TVV_MessageSenden.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/benachrichtigungen/TVV_Messagedetails.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/eventinfo/TVV_Eventinfo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/eventsuche/TVV_Eventsuche.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/general/TVV_Grundlage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/kaufvorgang/TVV_KaufvorgangDateneingabe.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/kaufvorgang/TVV_KaufvorgangEnde.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/kaufvorgang/TVV_KaufvorgangZusammenfassung.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/kundeninfo/TVV_Kundeninfo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/kundensuche/TVV_Kundensuche.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/login/TVV_Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/warenkorb/TVV_Warenkorb.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +150,7 @@
       <workItem from="1686133392523" duration="713000" />
       <workItem from="1687435483599" duration="1027000" />
       <workItem from="1687636912930" duration="14013000" />
-      <workItem from="1687881171272" duration="2912000" />
+      <workItem from="1687881171272" duration="3775000" />
     </task>
     <task id="LOCAL-00001" summary="EJB Implementation">
       <created>1684249596183</created>
@@ -165,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687736079556</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Final Commit">
+      <created>1687907334470</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687907334471</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +209,8 @@
     <MESSAGE value="IP Implementation / EJB Bugfixes" />
     <MESSAGE value="Some Bugfixes Here, some bugfixes there" />
     <MESSAGE value="Fat JAR Creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fat JAR Creation" />
+    <MESSAGE value="Final Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
