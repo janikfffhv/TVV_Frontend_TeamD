@@ -19,7 +19,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.IOException;
 import java.net.URL;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +51,6 @@ public class AboEinstellungenController implements Initializable {
     private boolean konzertBereitsAbonniert = false;
 
     //VALIDIERUNG
-    @FXML
-    private Label themenErrorLabel;
     private static Properties props = new Properties();
     private static Context ctx = null;
 
@@ -187,7 +184,7 @@ public class AboEinstellungenController implements Initializable {
     }
 
     @FXML
-    protected void themenSpeichern() throws RemoteException {
+    protected void themenSpeichern(ActionEvent event) throws RemoteException {
 
         if(validierung()) {
             List<String> topics = new ArrayList<>();
@@ -240,6 +237,9 @@ public class AboEinstellungenController implements Initializable {
                 RolesTopics rolesTopics = (RolesTopics) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/RolesTopicsEJB!at.fhv.tvv.shared.ejb.RolesTopics");
                 rolesTopics.setTopics(topics, username);
                 TVVApplication.setTopics(topics);
+                zurueck(event);
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -255,11 +255,9 @@ public class AboEinstellungenController implements Initializable {
         boolean valid = true;
 
         themenLabel.setVisible(false);
-        themenErrorLabel.setVisible(false);
 
         if(!kinoCheckbox.isSelected() && !theaterCheckbox.isSelected() && !konzertCheckbox.isSelected()) {
 
-            themenErrorLabel.setVisible(true);
             valid = false;
 
         }
