@@ -14,7 +14,7 @@ public class EventList {
     public EventList(int eventId, String name, String veranstaltungsserie, int datum, String ort, int plaetzeVerfuegbar) {
         this.eventId = eventId;
         this.name = name;
-        Date date = new Date(datum*1000L);
+        Date date = new Date(datum * 1000L);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         this.datum = sdf.format(date);
         this.ort = ort;

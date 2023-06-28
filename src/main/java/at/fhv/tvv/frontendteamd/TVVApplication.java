@@ -16,9 +16,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.*;
 import java.util.concurrent.Executors;
@@ -33,29 +30,13 @@ public class TVVApplication extends Application {
     private static Properties props = new Properties();
     private static Context ctx = null;
 
-    @Override
-    public void start(Stage stage) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(TVVApplication.class.getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1500, 700);
-
-        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/at/fhv/tvv/frontendteamd/images/Logo.png")));
-        stage.getIcons().add(icon);
-        stage.setTitle("Ticket Verkauf Vorarlberg - Hier werden Ticketträume wahr!");
-
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
     public static List<WarenkorbZeileDTO> getWarenkorb() throws RemoteException {
         return tvvSession.getWarenkorb();
     }
 
     public static boolean hinzufuegen(WarenkorbZeileDTO zeile) throws RemoteException {
-        for(WarenkorbZeileDTO item:tvvSession.getWarenkorb()) {
-            if(item.getPlatzId() == zeile.getPlatzId()) {
-                System.out.println("IST SCHON DABEI");
+        for (WarenkorbZeileDTO item : tvvSession.getWarenkorb()) {
+            if (item.getPlatzId() == zeile.getPlatzId()) {
                 return false;
             }
         }
@@ -85,16 +66,15 @@ public class TVVApplication extends Application {
         tvvSession.leeren();
     }
 
-    public static void setIp(String ipadd) {
-        TVVApplication.ip = ipadd;
-    }
-
     public static String getIp() {
 
         System.out.println("IP: " + ip);
         return ip;
     }
 
+    public static void setIp(String ipadd) {
+        TVVApplication.ip = ipadd;
+    }
 
     public static void hinzufuegenKunde(UUID uuid) throws RemoteException {
         tvvSession.hinzufuegenKunde(uuid);
@@ -112,12 +92,12 @@ public class TVVApplication extends Application {
         return tvvSession.getKunde();
     }
 
-    public static void setBenutzerName(String s) throws RemoteException {
-        tvvSession.setBenutzerName(s);
-    }
-
     public static String getBenutzerName() throws RemoteException {
         return tvvSession.getBenutzerName();
+    }
+
+    public static void setBenutzerName(String s) throws RemoteException {
+        tvvSession.setBenutzerName(s);
     }
 
     public static List<String> getRollen() throws RemoteException {
@@ -135,6 +115,7 @@ public class TVVApplication extends Application {
     public static void setRoles(List<String> roles) throws RemoteException {
         tvvSession.setRollen(roles);
     }
+
     public static void showInfo() {
         Notifications.create()
                 .title("Neue Nachricht!")
@@ -143,7 +124,7 @@ public class TVVApplication extends Application {
     }
 
     public static void pollMessages() throws RemoteException, NamingException {
-        MessageConsumer messageConsumer =  (MessageConsumer) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/MessageConsumerEJB!at.fhv.tvv.shared.ejb.MessageConsumer");
+        MessageConsumer messageConsumer = (MessageConsumer) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/MessageConsumerEJB!at.fhv.tvv.shared.ejb.MessageConsumer");
         messages = messageConsumer.getMessages(TVVApplication.getBenutzerName());
         ScheduledExecutorService scheduledExecutorService =
                 Executors.newScheduledThreadPool(5);
@@ -151,9 +132,9 @@ public class TVVApplication extends Application {
             public void run() {
                 try {
 
-                    MessageConsumer messageConsumer =  (MessageConsumer) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/MessageConsumerEJB!at.fhv.tvv.shared.ejb.MessageConsumer");
+                    MessageConsumer messageConsumer = (MessageConsumer) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/MessageConsumerEJB!at.fhv.tvv.shared.ejb.MessageConsumer");
                     List<MessageDTO> messages2 = messageConsumer.getMessages(TVVApplication.getBenutzerName());
-                    if(messages2.size() > messages.size() && !messages2.equals(messages)) {
+                    if (messages2.size() > messages.size() && !messages2.equals(messages)) {
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
@@ -166,14 +147,26 @@ public class TVVApplication extends Application {
                     e.printStackTrace();
                 }
 
-            }},5,5, TimeUnit.SECONDS);
+            }
+        }, 5, 5, TimeUnit.SECONDS);
     }
-
-
-
-
 
     public static void main(String[] args) {
         launch();
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(TVVApplication.class.getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1500, 700);
+
+        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/at/fhv/tvv/frontendteamd/images/Logo.png")));
+        stage.getIcons().add(icon);
+        stage.setTitle("Ticket Verkauf Vorarlberg - Hier werden Ticketträume wahr!");
+
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

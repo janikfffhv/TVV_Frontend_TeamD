@@ -33,18 +33,17 @@ import java.util.regex.Pattern;
 
 public class KaufvorgangDateneingabeController implements Initializable {
 
+    private static Properties props = new Properties();
+    private static Context ctx = null;
     private Stage stage;
-
     //BENACHRICHTIGUNG
     @FXML
     private ImageView benachrichtigungBild;
-
     //KAUFVORGANG - DATENEINGABE
     @FXML
     private TextField suchbegriffTF;
     @FXML
     private ChoiceBox<String> zahlungsmethodeCB;
-
     //VALIDIERUNG
     @FXML
     private Label suchbegriffErrorLabel;
@@ -52,23 +51,15 @@ public class KaufvorgangDateneingabeController implements Initializable {
     private Label kundenwahlErrorLabel;
     @FXML
     private Label zahlungsmethodeErrorLabel;
-
-
     //KUNDEN-TABELLE
     @FXML
     private TableView/*<KundenDto>*/ kundenTV;
-
     @FXML
     private TableColumn<String, CustomerList> nameSpalte;
-
     @FXML
     private TableColumn<String, CustomerList> geburtsdatumSpalte;
-
     @FXML
     private TableColumn<String, CustomerList> adresseSpalte;
-
-    private static Properties props = new Properties();
-    private static Context ctx = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -83,7 +74,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
         }
 
         //BENACHRICHTIGUNGEN-ICON
-        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+        if (TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
             //Benachrichtigungen-Icon ändern
             benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
         }
@@ -99,9 +90,9 @@ public class KaufvorgangDateneingabeController implements Initializable {
         TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -114,9 +105,9 @@ public class KaufvorgangDateneingabeController implements Initializable {
     protected void zurueckZumWarenkorb(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/warenkorb/TVV_Warenkorb.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -131,9 +122,8 @@ public class KaufvorgangDateneingabeController implements Initializable {
     protected void sucheKunden(ActionEvent event) throws IOException {
 
         //Methode aus Domain Layer aufrufen, welche die Event-Suche einleitet.
-        System.out.println("Tried!");
 
-        if(suchbegriffValidierung()) {
+        if (suchbegriffValidierung()) {
             try {
                 List<CustomerSearchDTO> kunden;
                 CustomerSearch customerSearch = (CustomerSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerSearchEJB!at.fhv.tvv.shared.ejb.CustomerSearch");
@@ -142,7 +132,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
                 nameSpalte.setPrefWidth(350);
                 nameSpalte.setResizable(false);
 
-                geburtsdatumSpalte.setCellValueFactory(new PropertyValueFactory<> ("geburtsdatum"));
+                geburtsdatumSpalte.setCellValueFactory(new PropertyValueFactory<>("geburtsdatum"));
                 geburtsdatumSpalte.setPrefWidth(230);
                 geburtsdatumSpalte.setResizable(false);
 
@@ -157,10 +147,10 @@ public class KaufvorgangDateneingabeController implements Initializable {
                 kundenTV.getColumns().add(adresseSpalte);
 
                 kundenTV.setOnMouseClicked((MouseEvent mouseEvent) -> {
-                    if(mouseEvent.getClickCount() == 2) {
+                    if (mouseEvent.getClickCount() == 2) {
                         int eventIndex = kundenTV.getSelectionModel().getSelectedIndex();
                         CustomerList customerId = (CustomerList) kundenTV.getItems().get(eventIndex);
-                            System.out.println(customerId.getId());
+                        System.out.println(customerId.getId());
                         try {
                             TVVApplication.hinzufuegenKunde(customerId.getId());
                             Notifications.create()
@@ -173,7 +163,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
                     }
                 });
 
-                for(CustomerSearchDTO kunde : kunden) {
+                for (CustomerSearchDTO kunde : kunden) {
                     String name = kunde.getVorname() + " " + kunde.getNachname();
                     String adresse = kunde.getHausnummer() + " " + kunde.getStrasse() + ", " + kunde.getPlz() + " " + kunde.getOrt();
                     CustomerList kunde2 = new CustomerList(kunde.getCustomerId(), name, kunde.getGeburtsdatum(), adresse);
@@ -191,7 +181,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
     @FXML
     protected void zurZusammenfassung(ActionEvent event) throws IOException {
 
-        if(validierung()) {
+        if (validierung()) {
             TVVApplication.hinzufuegenZahlungsmethode(zahlungsmethodeCB.getValue());
             Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangZusammenfassung.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -215,7 +205,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
 
         String suchbegriff = suchbegriffTF.getText();
 
-        if(!Pattern.matches("^[a-zA-Z0-9 äÄöÖüÜß-]{3,}$", suchbegriff)) {
+        if (!Pattern.matches("^[a-zA-Z0-9 äÄöÖüÜß-]{3,}$", suchbegriff)) {
 
             suchbegriffErrorLabel.setVisible(true);
             valid = false;
@@ -233,7 +223,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
         kundenwahlErrorLabel.setVisible(false);
         zahlungsmethodeErrorLabel.setVisible(false);
 
-        if(kundenTV.getSelectionModel().getSelectedItem() == null) {
+        if (kundenTV.getSelectionModel().getSelectedItem() == null) {
 
             kundenwahlErrorLabel.setVisible(true);
 
@@ -243,7 +233,7 @@ public class KaufvorgangDateneingabeController implements Initializable {
 
         }
 
-        if(zahlungsmethodeCB.getValue() == null) {
+        if (zahlungsmethodeCB.getValue() == null) {
 
             zahlungsmethodeErrorLabel.setVisible(true);
 

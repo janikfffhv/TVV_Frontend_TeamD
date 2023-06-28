@@ -1,7 +1,5 @@
 package at.fhv.tvv.frontendteamd;
 
-import at.fhv.tvv.shared.dto.MessageDTO;
-import at.fhv.tvv.shared.ejb.MessageConsumer;
 import at.fhv.tvv.shared.ejb.RolesTopics;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 
@@ -23,7 +20,6 @@ import javax.naming.directory.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.util.Hashtable;
 import java.util.List;
@@ -77,7 +73,7 @@ public class LoginController implements Initializable {
     @FXML
     protected void login(ActionEvent event) throws IOException, NotBoundException, NamingException {
 
-        if(validierung()) {
+        if (validierung()) {
             Properties props = new Properties();
             props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
             props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
@@ -124,55 +120,54 @@ public class LoginController implements Initializable {
 
         try {
 
-        if(userID.equals("")) {
+            if (userID.equals("")) {
 
-            userIDErrorLabel.setVisible(true);
+                userIDErrorLabel.setVisible(true);
 
-            valid = false;
-            throw new Exception();
-
-        }
-
-        if(passwort.equals("")) {
-
-            passwortErrorLabel.setVisible(true);
-
-            valid = false;
-            throw new Exception();
-
-        }
-
-        if(!ip.equals("")) {
-
-            if(!Pattern.matches("^((25[0-5]|(2[0-4]|1\\\\d|[1-9]|)\\\\d)\\\\.?\\\\b){4}$", ip)) { //TODO: FUNKTIONIERENDES REGEX ERSTELLEN
-
-                ipErrorLabel.setVisible(true);
                 valid = false;
+                throw new Exception();
 
             }
 
-        }
+            if (passwort.equals("")) {
+
+                passwortErrorLabel.setVisible(true);
+
+                valid = false;
+                throw new Exception();
+
+            }
+
+            if (!ip.equals("")) {
+
+                if (!Pattern.matches("^((25[0-5]|(2[0-4]|1\\\\d|[1-9]|)\\\\d)\\\\.?\\\\b){4}$", ip)) {
+
+                    ipErrorLabel.setVisible(true);
+                    valid = false;
+
+                }
+
+            }
 
 
-        Hashtable<String, String> env = new Hashtable<>();
-        if(ip.equals("")) { //Keine IP-Adresse angegeben -> Standard-IP-Adresse wird eingetragen.
-            ip = "10.0.40.167";
-            TVVApplication.setIp("10.0.40.167");
-        } else {
-            TVVApplication.setIp(ip);
-        }
+            Hashtable<String, String> env = new Hashtable<>();
+            if (ip.equals("")) { //Keine IP-Adresse angegeben -> Standard-IP-Adresse wird eingetragen.
+                ip = "10.0.40.167";
+                TVVApplication.setIp("10.0.40.167");
+            } else {
+                TVVApplication.setIp(ip);
+            }
 
-        env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-        if(ip.equals("localhost")) {
-            env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":10389");
-        } else {
-            env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":389");
-        }
+            env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+            if (ip.equals("localhost")) {
+                env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":10389");
+            } else {
+                env.put(Context.PROVIDER_URL, "ldap://" + TVVApplication.getIp() + ":389");
+            }
 
-        env.put(Context.SECURITY_AUTHENTICATION, "simple");
-        env.put(Context.SECURITY_PRINCIPAL, "cn=" + userID + ",ou=employees,dc=ad,dc=team1, dc=com");
-        env.put(Context.SECURITY_CREDENTIALS, passwort);
-
+            env.put(Context.SECURITY_AUTHENTICATION, "simple");
+            env.put(Context.SECURITY_PRINCIPAL, "cn=" + userID + ",ou=employees,dc=ad,dc=team1, dc=com");
+            env.put(Context.SECURITY_CREDENTIALS, passwort);
 
 
             //Create Session
@@ -211,7 +206,7 @@ public class LoginController implements Initializable {
 
         } catch (Exception e) {
             e.printStackTrace();
-            if(!passwort.equals("PssWrd")) {
+            if (!passwort.equals("PssWrd")) {
                 Notifications.create() //ErrorLabel dafür anzeigen, wenn die Login-Daten durch LDAP Überprüfung sich als inkorrekt herausstellen
                         .title("Fehler!")
                         .text("Nutzername oder Passwort falsch!")

@@ -71,7 +71,6 @@ public class WarenkorbController implements Initializable {
     private Button kassaButton;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -83,11 +82,11 @@ public class WarenkorbController implements Initializable {
         terminSpalte.setPrefWidth(250);
         terminSpalte.setResizable(false);
 
-        platzSpalte.setCellValueFactory(new PropertyValueFactory<> ("platzId"));
+        platzSpalte.setCellValueFactory(new PropertyValueFactory<>("platzId"));
         platzSpalte.setPrefWidth(200);
         platzSpalte.setResizable(false);
 
-        preisSpalte.setCellValueFactory(new PropertyValueFactory<> ("preis"));
+        preisSpalte.setCellValueFactory(new PropertyValueFactory<>("preis"));
         preisSpalte.setPrefWidth(300);
         preisSpalte.setResizable(false);
 
@@ -101,7 +100,7 @@ public class WarenkorbController implements Initializable {
 
         try {
             List<WarenkorbZeileDTO> warenkorb = TVVApplication.getWarenkorb();
-            for(WarenkorbZeileDTO zeile:warenkorb) {
+            for (WarenkorbZeileDTO zeile : warenkorb) {
                 warenkorbTV.getItems().add(zeile);
                 preisGesamt += zeile.getPreis();
             }
@@ -109,7 +108,7 @@ public class WarenkorbController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        if(warenkorbTV.getItems().size() >= 1) {
+        if (warenkorbTV.getItems().size() >= 1) {
             kassaButton.setVisible(true);
             preisTextLabel.setVisible(true);
             preisLabel.setVisible(true);
@@ -120,14 +119,14 @@ public class WarenkorbController implements Initializable {
         }
 
         //BENACHRICHTIGUNGEN-ICON
-        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+        if (TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
             //Benachrichtigungen-Icon ändern
             benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
         }
 
         //WARENKORB-ICON
         try {
-            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+            if (TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
                 warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
             }
         } catch (RemoteException e) {
@@ -145,9 +144,9 @@ public class WarenkorbController implements Initializable {
         TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -160,9 +159,9 @@ public class WarenkorbController implements Initializable {
     protected void oeffneBenachrichtigungen(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Benachrichtigungen.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -175,15 +174,14 @@ public class WarenkorbController implements Initializable {
     protected void oeffneKundensuche(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kundensuche/TVV_Kundensuche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
 
         stage.show();
-
 
 
     }
@@ -192,9 +190,9 @@ public class WarenkorbController implements Initializable {
     protected void oeffneEventsuche(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -224,7 +222,6 @@ public class WarenkorbController implements Initializable {
     @FXML
     protected void markierteTicketsLoeschen() {
 
-        System.out.println("Ticket(s) aus Warenkorb loeschen..."); //TODO
 
     }
 
@@ -232,9 +229,9 @@ public class WarenkorbController implements Initializable {
     protected void zurKassaGehen(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangDateneingabe.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);

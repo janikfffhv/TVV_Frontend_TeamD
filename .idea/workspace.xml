@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="Final Commit">
+    <list default="true" id="c0678153-5c87-445d-99ba-06a035729379" name="Changes" comment="Whoops, now it is the final commit I think">
       <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/benachrichtigungen/TVV_AboEinstellungen.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/benachrichtigungen/TVV_Benachrichtigungen.fxml" afterDir="false" />
@@ -21,7 +21,22 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/login/TVV_Login.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/at/fhv/tvv/frontendteamd/fxml/fxml/warenkorb/TVV_Warenkorb.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/AboEinstellungenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/BenachrichtigungenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/BenachrichtigungenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventinfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/EventsucheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangDateneingabeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangEndeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangEndeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangZusammenfassungController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KaufvorgangZusammenfassungController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundeninfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundensucheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/KundensucheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessageSendenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessageSendenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessagedetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/MessagedetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/TVVApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/WarenkorbController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/WarenkorbController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/model/CustomerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/model/CustomerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/model/EventList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/tvv/frontendteamd/model/EventList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +165,7 @@
       <workItem from="1686133392523" duration="713000" />
       <workItem from="1687435483599" duration="1027000" />
       <workItem from="1687636912930" duration="14013000" />
-      <workItem from="1687881171272" duration="3775000" />
+      <workItem from="1687881171272" duration="8541000" />
     </task>
     <task id="LOCAL-00001" summary="EJB Implementation">
       <created>1684249596183</created>
@@ -187,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687907334471</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Whoops, now it is the final commit I think">
+      <created>1687908459498</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687908459498</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +232,8 @@
     <MESSAGE value="Some Bugfixes Here, some bugfixes there" />
     <MESSAGE value="Fat JAR Creation" />
     <MESSAGE value="Final Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Commit" />
+    <MESSAGE value="Whoops, now it is the final commit I think" />
+    <option name="LAST_COMMIT_MESSAGE" value="Whoops, now it is the final commit I think" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

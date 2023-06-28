@@ -25,9 +25,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.time.Instant;
@@ -37,12 +35,12 @@ import java.util.ResourceBundle;
 
 public class KaufvorgangZusammenfassungController implements Initializable {
 
+    private static Properties props = new Properties();
+    private static Context ctx = null;
     private Stage stage;
-
     //BENACHRICHTIGUNG
     @FXML
     private ImageView benachrichtigungBild;
-
     //KAUFVORGANG - Zusammenfassung
     @FXML
     private Label nameLabel;
@@ -54,18 +52,14 @@ public class KaufvorgangZusammenfassungController implements Initializable {
     private Label ortLabel;
     @FXML
     private Label zahlungsmethodeLabel;
-    @FXML
-    private Label preisLabel;
-
-
-    private float preisGesamt;
 
 
     //TICKET-TABELLE
-
+    @FXML
+    private Label preisLabel;
+    private float preisGesamt;
     @FXML
     private TableView/*<TicketDto>*/ warenkorbTV;
-
     @FXML
     private TableColumn<String, WarenkorbZeileDTO> eventSpalte;
     @FXML
@@ -74,9 +68,6 @@ public class KaufvorgangZusammenfassungController implements Initializable {
     private TableColumn<String, WarenkorbZeileDTO> platzSpalte;
     @FXML
     private TableColumn<String, WarenkorbZeileDTO> preisSpalte;
-    private static Properties props = new Properties();
-    private static Context ctx = null;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -94,11 +85,11 @@ public class KaufvorgangZusammenfassungController implements Initializable {
         terminSpalte.setPrefWidth(150);
         terminSpalte.setResizable(false);
 
-        platzSpalte.setCellValueFactory(new PropertyValueFactory<> ("platzId"));
+        platzSpalte.setCellValueFactory(new PropertyValueFactory<>("platzId"));
         platzSpalte.setPrefWidth(150);
         platzSpalte.setResizable(false);
 
-        preisSpalte.setCellValueFactory(new PropertyValueFactory<> ("preis"));
+        preisSpalte.setCellValueFactory(new PropertyValueFactory<>("preis"));
         preisSpalte.setPrefWidth(200);
         preisSpalte.setResizable(false);
 
@@ -111,7 +102,7 @@ public class KaufvorgangZusammenfassungController implements Initializable {
         preisGesamt = 0;
         try {
             List<WarenkorbZeileDTO> warenkorb = TVVApplication.getWarenkorb();
-            for(WarenkorbZeileDTO zeile:warenkorb) {
+            for (WarenkorbZeileDTO zeile : warenkorb) {
                 warenkorbTV.getItems().add(zeile);
                 preisGesamt += zeile.getPreis();
             }
@@ -132,7 +123,7 @@ public class KaufvorgangZusammenfassungController implements Initializable {
         }
 
         //BENACHRICHTIGUNGEN-ICON
-        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+        if (TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
             //Benachrichtigungen-Icon ändern
             benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
         }
@@ -148,9 +139,9 @@ public class KaufvorgangZusammenfassungController implements Initializable {
         TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -163,9 +154,9 @@ public class KaufvorgangZusammenfassungController implements Initializable {
     protected void zurueck(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangDateneingabe.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -180,12 +171,12 @@ public class KaufvorgangZusammenfassungController implements Initializable {
     @FXML
     protected void ticketBuchen(ActionEvent event) throws IOException, NotBoundException, NamingException {
 
-        if(validierung()) {
+        if (validierung()) {
 
 
             VerkaufDTO verkaufDTO = new VerkaufDTO(preisGesamt, TVVApplication.getKunde(), TVVApplication.getZahlungsmethode().toUpperCase(), TVVApplication.getWarenkorb(), String.valueOf(Instant.now().getEpochSecond()));
             Verkauf verkauf = (Verkauf) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/VerkaufImplEJB!at.fhv.tvv.shared.ejb.Verkauf");
-            if(verkauf.kaufe(verkaufDTO)) {
+            if (verkauf.kaufe(verkaufDTO)) {
                 Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kaufvorgang/TVV_KaufvorgangEnde.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 double breite = ((Node) event.getSource()).getScene().getWidth();
@@ -210,8 +201,6 @@ public class KaufvorgangZusammenfassungController implements Initializable {
     private boolean validierung() {
 
         boolean valid = true;
-
-        //TODO: Es soll überprüft werden, ob alle gewählten Tickets im Warenkorb noch verfügbar sind, wenn auf den Button "JETZT BUCHEN" geklickt wird!
 
         return valid;
 

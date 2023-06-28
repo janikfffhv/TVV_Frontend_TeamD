@@ -32,40 +32,31 @@ import java.util.ResourceBundle;
 
 public class BenachrichtigungenController implements Initializable {
 
+    private static Properties props = new Properties();
+    private static Context ctx = null;
     private Stage stage;
-
     //WARENKORB
     @FXML
     private ImageView warenkorbBild;
     //BENACHRICHTIGUNG
     @FXML
     private ImageView benachrichtigungBild;
-
     //BENACHRICHTIGUNGEN
     @FXML
     private Button messageSendenButton;
-
     //NACHRICHTEN-TABELLE
     @FXML
     private TableView/*<MessageDto>*/ nachrichtenTV; //TODO: MessageDto erstellen
-
     @FXML
     private TableColumn<String, MessageDTO> themaSpalte;
-
     @FXML
     private TableColumn<String, MessageDTO> betreffSpalte;
-
-    private static Properties props = new Properties();
-    private static Context ctx = null;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //try {
-            //if(tvvSession.getKunde().getRolle() == "Operator") { //TODO: Kontrollieren, ob angemeldeter User die Rolle Operator besitzt!
 
-                messageSendenButton.setVisible(true);
+        messageSendenButton.setVisible(true);
         props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
         props.put(Context.PROVIDER_URL, "http-remoting://" + TVVApplication.getIp() + ":8080");
         try {
@@ -74,12 +65,6 @@ public class BenachrichtigungenController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        //}
-        //} catch (RemoteException e) {
-        //    throw new RuntimeException(e);
-        //}//TODO ENDE: Kontrollieren, ob angemeldeter User die Rolle Operator besitzt!
-
-        //TODO: Nachrichten aus abonnierten Topics einholen und diese in nachrichtenTV auflisten!
         try {
             //Messages einholen.
             List<MessageDTO> messages;
@@ -87,12 +72,12 @@ public class BenachrichtigungenController implements Initializable {
             messages = messageConsumer.getMessages(TVVApplication.getBenutzerName());
 
             //Tabelle für Messages generieren.
-            TableColumn<String, MessageDTO> themaSpalte = new TableColumn<> ("Thema");
+            TableColumn<String, MessageDTO> themaSpalte = new TableColumn<>("Thema");
             themaSpalte.setCellValueFactory(new PropertyValueFactory<>("topicName"));
             themaSpalte.setPrefWidth(400);
             themaSpalte.setResizable(false);
 
-            TableColumn<String, MessageDTO> betreffSpalte = new TableColumn<> ("Betreff");
+            TableColumn<String, MessageDTO> betreffSpalte = new TableColumn<>("Betreff");
             betreffSpalte.setCellValueFactory(new PropertyValueFactory<>("title"));
             betreffSpalte.setPrefWidth(500);
             betreffSpalte.setResizable(false);
@@ -104,16 +89,15 @@ public class BenachrichtigungenController implements Initializable {
 
 
             nachrichtenTV.setOnMouseClicked((MouseEvent mouseEvent) -> {
-                if(mouseEvent.getClickCount() == 2) {
+                if (mouseEvent.getClickCount() == 2) {
                     int nachrichtenIndex = nachrichtenTV.getSelectionModel().getSelectedIndex();
                     MessageDTO message = (MessageDTO) nachrichtenTV.getItems().get(nachrichtenIndex);
                     try {
-                        System.out.println(message.getTitle());
                         FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Messagedetails.fxml"));
                         Parent root = loader2.load();
-                        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-                        double breite = ((Node)mouseEvent.getSource()).getScene().getWidth();
-                        double hoehe = ((Node)mouseEvent.getSource()).getScene().getHeight();
+                        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+                        double breite = ((Node) mouseEvent.getSource()).getScene().getWidth();
+                        double hoehe = ((Node) mouseEvent.getSource()).getScene().getHeight();
 
                         Scene scene = new Scene(root, breite, hoehe);
                         stage.setScene(scene);
@@ -126,7 +110,7 @@ public class BenachrichtigungenController implements Initializable {
                 }
             });
 
-            for(MessageDTO message1 : messages) {
+            for (MessageDTO message1 : messages) {
                 nachrichtenTV.getItems().add(message1);
             }
 
@@ -135,14 +119,14 @@ public class BenachrichtigungenController implements Initializable {
         }
 
         //BENACHRICHTIGUNGEN-ICON
-        if( TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+        if (TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
             //Benachrichtigungen-Icon ändern
             benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
         }
 
         //WARENKORB-ICON
         try {
-            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+            if (TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
                 warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
             }
         } catch (RemoteException e) {
@@ -160,9 +144,9 @@ public class BenachrichtigungenController implements Initializable {
         TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -175,9 +159,9 @@ public class BenachrichtigungenController implements Initializable {
     protected void oeffneKundensuche(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kundensuche/TVV_Kundensuche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -190,9 +174,9 @@ public class BenachrichtigungenController implements Initializable {
     protected void oeffneEventsuche(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -205,9 +189,9 @@ public class BenachrichtigungenController implements Initializable {
     protected void oeffneWarenkorb(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/warenkorb/TVV_Warenkorb.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -222,9 +206,9 @@ public class BenachrichtigungenController implements Initializable {
     protected void oeffneAboEinstellungen(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_AboEinstellungen.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -236,8 +220,7 @@ public class BenachrichtigungenController implements Initializable {
     @FXML
     protected void oeffneMessageSenden(ActionEvent event) throws IOException {
         List<String> roles = TVVApplication.getRollen();
-        System.out.println(TVVApplication.getRollen().toString());
-        if(!roles.contains("Operator")) {
+        if (!roles.contains("Operator")) {
             Notifications.create()
                     .title("Fehler!")
                     .text("Sie besitzen als Mitarbeiter-User keine Berechtigung um Messages zu versenden!")

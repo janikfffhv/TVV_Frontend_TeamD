@@ -14,9 +14,11 @@ public class CustomerList {
         this.geburtsdatum = geburtsdatum;
         this.adresse = adresse;
     }
+
     public UUID getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }

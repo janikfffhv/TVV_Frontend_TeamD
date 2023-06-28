@@ -34,32 +34,24 @@ import java.util.regex.Pattern;
 
 public class KundensucheController implements Initializable {
 
+    private static Properties props = new Properties();
+    private static Context ctx = null;
     private Stage stage;
-
     //WARENKORB
     @FXML
     private ImageView warenkorbBild;
     //BENACHRICHTIGUNG
     @FXML
     private ImageView benachrichtigungBild;
-
     //KUNDENSUCHE
     @FXML
     private TextField suchbegriffTF;
-
     //VALIDIERUNG
     @FXML
     private Label suchbegriffErrorLabel;
-
     //KUNDEN-TABELLE
     @FXML
     private TableView/*<KundenDto>*/ kundenTV; //TODO: KundenDto erstellen
-
-
-    private static Properties props = new Properties();
-    private static Context ctx = null;
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,14 +65,14 @@ public class KundensucheController implements Initializable {
         }
 
         //BENACHRICHTIGUNGEN-ICON
-        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+        if (TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
             //Benachrichtigungen-Icon ändern
             benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
         }
 
         //WARENKORB-ICON
         try {
-            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+            if (TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
                 warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
             }
         } catch (RemoteException e) {
@@ -98,9 +90,9 @@ public class KundensucheController implements Initializable {
         TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -113,9 +105,9 @@ public class KundensucheController implements Initializable {
     protected void oeffneBenachrichtigungen(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Benachrichtigungen.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -128,9 +120,9 @@ public class KundensucheController implements Initializable {
     protected void oeffneEventsuche(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -143,9 +135,9 @@ public class KundensucheController implements Initializable {
     protected void oeffneWarenkorb(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/warenkorb/TVV_Warenkorb.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -161,38 +153,26 @@ public class KundensucheController implements Initializable {
 
         //Methode aus Domain Layer aufrufen, welche die Event-Suche einleitet. //TODO: KUNDENSUCHE IMPLEMENTIEREN
 
-        if(validierung()) {
+        if (validierung()) {
 
-            System.out.println("Suchen...");
 
-            /**Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kundeninfo/TVV_Kundeninfo.fxml")); //SPÄTER ENTFERNEN!
-             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-             double breite = ((Node)event.getSource()).getScene().getWidth();
-             double hoehe = ((Node)event.getSource()).getScene().getHeight();
-
-             Scene scene = new Scene(root, breite, hoehe);
-             stage.setScene(scene);
-
-             stage.show();**/
-
-            //Methode aus Domain Layer aufrufen, welche die Event-Suche einleitet. //TODO: EVENTSUCHE IMPLEMENTIEREN
-            System.out.println("Suchen...");
+            //Methode aus Domain Layer aufrufen, welche die Event-Suche einleitet.
             try {
                 List<CustomerSearchDTO> kunden;
                 CustomerSearch customerSearch = (CustomerSearch) ctx.lookup("ejb:/backend-1.0-SNAPSHOT/CustomerSearchEJB!at.fhv.tvv.shared.ejb.CustomerSearch");
                 kunden = customerSearch.searchByString(suchbegriffTF.getText());
 
-                TableColumn<String, CustomerList> nameSpalte = new TableColumn<> ("NAME");
+                TableColumn<String, CustomerList> nameSpalte = new TableColumn<>("NAME");
                 nameSpalte.setCellValueFactory(new PropertyValueFactory<>("name"));
                 nameSpalte.setPrefWidth(350);
                 nameSpalte.setResizable(false);
 
                 TableColumn<Integer, CustomerList> datumSpalte = new TableColumn<>("GEBURTSDATUM");
-                datumSpalte.setCellValueFactory(new PropertyValueFactory<> ("geburtsdatum"));
+                datumSpalte.setCellValueFactory(new PropertyValueFactory<>("geburtsdatum"));
                 datumSpalte.setPrefWidth(200);
                 datumSpalte.setResizable(false);
 
-                TableColumn<Integer, CustomerList> adresseSpalte = new TableColumn<> ("ADRESSE");
+                TableColumn<Integer, CustomerList> adresseSpalte = new TableColumn<>("ADRESSE");
                 adresseSpalte.setCellValueFactory(new PropertyValueFactory<>("adresse"));
                 adresseSpalte.setPrefWidth(350);
                 adresseSpalte.setResizable(false);
@@ -204,22 +184,22 @@ public class KundensucheController implements Initializable {
                 kundenTV.getColumns().add(adresseSpalte);
 
                 kundenTV.setOnMouseClicked((MouseEvent mouseEvent) -> {
-                    if(mouseEvent.getClickCount() == 2) {
+                    if (mouseEvent.getClickCount() == 2) {
                         int eventIndex = kundenTV.getSelectionModel().getSelectedIndex();
                         CustomerList customerId = (CustomerList) kundenTV.getItems().get(eventIndex);
                         try {
                             System.out.println(customerId.getId());
                             FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kundeninfo/TVV_Kundeninfo.fxml"));
                             Parent root = loader3.load();
-                            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                            double breite = ((Node)event.getSource()).getScene().getWidth();
-                            double hoehe = ((Node)event.getSource()).getScene().getHeight();
+                            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            double breite = ((Node) event.getSource()).getScene().getWidth();
+                            double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
                             Scene scene = new Scene(root, breite, hoehe);
                             stage.setScene(scene);
                             System.out.println("Gegebener Kunde: " + customerId.getId().toString());
                             KundeninfoController kundenInfoController = loader3.getController();
-                             kundenInfoController.sucheKunde(customerId.getId());
+                            kundenInfoController.sucheKunde(customerId.getId());
                             stage.show();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
@@ -227,7 +207,7 @@ public class KundensucheController implements Initializable {
                     }
                 });
 
-                for(CustomerSearchDTO kunde : kunden) {
+                for (CustomerSearchDTO kunde : kunden) {
                     String name = kunde.getVorname() + " " + kunde.getNachname();
                     String adresse = kunde.getHausnummer() + " " + kunde.getStrasse() + ", " + kunde.getPlz() + " " + kunde.getOrt();
                     CustomerList kunde2 = new CustomerList(kunde.getCustomerId(), name, kunde.getGeburtsdatum(), adresse);
@@ -246,9 +226,9 @@ public class KundensucheController implements Initializable {
     protected void oeffneKundeninfo(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kundeninfo/TVV_Kundeninfo.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -265,7 +245,7 @@ public class KundensucheController implements Initializable {
 
         String suchbegriff = suchbegriffTF.getText();
 
-        if(!Pattern.matches("^[a-zA-Z0-9 äÄöÖüÜß-]{3,}$", suchbegriff)) {
+        if (!Pattern.matches("^[a-zA-Z0-9 äÄöÖüÜß-]{3,}$", suchbegriff)) {
 
             suchbegriffErrorLabel.setVisible(true);
             valid = false;

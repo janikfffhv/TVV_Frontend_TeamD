@@ -27,15 +27,16 @@ import java.util.ResourceBundle;
 
 public class AboEinstellungenController implements Initializable {
 
+    //VALIDIERUNG
+    private static Properties props = new Properties();
+    private static Context ctx = null;
     private Stage stage;
-
     //WARENKORB
     @FXML
     private ImageView warenkorbBild;
     //BENACHRICHTIGUNG
     @FXML
     private ImageView benachrichtigungBild;
-
     //ABONNIERTE THEMEN
     @FXML
     private Label themenLabel;
@@ -45,14 +46,9 @@ public class AboEinstellungenController implements Initializable {
     private CheckBox theaterCheckbox;
     @FXML
     private CheckBox konzertCheckbox;
-
     private boolean kinoBereitsAbonniert = false;
     private boolean theaterBereitsAbonniert = false;
     private boolean konzertBereitsAbonniert = false;
-
-    //VALIDIERUNG
-    private static Properties props = new Properties();
-    private static Context ctx = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,15 +64,15 @@ public class AboEinstellungenController implements Initializable {
         //Die dazugehörigen boolean-Variablen sollen dann auf true gesetzt werden (z.B. kinoBereitsAbonniert = true).
         try {
             List<String> topics = TVVApplication.getTopics();
-            if(topics.contains("KINO")) {
+            if (topics.contains("KINO")) {
                 kinoCheckbox.setSelected(true);
                 kinoBereitsAbonniert = true;
             }
-            if(topics.contains("THEATER")) {
+            if (topics.contains("THEATER")) {
                 theaterCheckbox.setSelected(true);
                 theaterBereitsAbonniert = true;
             }
-            if(topics.contains("KONZERT")) {
+            if (topics.contains("KONZERT")) {
                 konzertCheckbox.setSelected(true);
                 konzertBereitsAbonniert = true;
             }
@@ -85,14 +81,14 @@ public class AboEinstellungenController implements Initializable {
         }
 
         //BENACHRICHTIGUNGEN-ICON
-        if(TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
+        if (TVVApplication.messages.size() > 0) { //WENN MINDESTENS EINE NACHRICHT IM POSTEINGANG LIEGT.
             //Benachrichtigungen-Icon ändern
             benachrichtigungBild.setImage(new Image(getClass().getResource("images/Neue_Benachrichtigungen.png").toString()));
         }
 
         //WARENKORB-ICON
         try {
-            if(TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
+            if (TVVApplication.getWarenkorb().size() > 0) { //WENN MINDESTENS EIN TICKET IM WARENKORB LIEGT.
                 warenkorbBild.setImage(new Image(getClass().getResource("images/Gefuellter_Warenkorb.png").toString()));
             }
         } catch (RemoteException e) {
@@ -110,9 +106,9 @@ public class AboEinstellungenController implements Initializable {
         TVVApplication.leeren();
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/login/TVV_Login.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -125,9 +121,9 @@ public class AboEinstellungenController implements Initializable {
     protected void oeffneKundensuche(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/kundensuche/TVV_Kundensuche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -140,9 +136,9 @@ public class AboEinstellungenController implements Initializable {
     protected void oeffneEventsuche(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/eventsuche/TVV_Eventsuche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -155,9 +151,9 @@ public class AboEinstellungenController implements Initializable {
     protected void oeffneWarenkorb(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/warenkorb/TVV_Warenkorb.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -172,9 +168,9 @@ public class AboEinstellungenController implements Initializable {
     protected void zurueck(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/at/fhv/tvv/frontendteamd/fxml/benachrichtigungen/TVV_Benachrichtigungen.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        double breite = ((Node)event.getSource()).getScene().getWidth();
-        double hoehe = ((Node)event.getSource()).getScene().getHeight();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        double breite = ((Node) event.getSource()).getScene().getWidth();
+        double hoehe = ((Node) event.getSource()).getScene().getHeight();
 
         Scene scene = new Scene(root, breite, hoehe);
         stage.setScene(scene);
@@ -186,46 +182,46 @@ public class AboEinstellungenController implements Initializable {
     @FXML
     protected void themenSpeichern(ActionEvent event) throws RemoteException {
 
-        if(validierung()) {
+        if (validierung()) {
             List<String> topics = new ArrayList<>();
 
             //KINO
-            if(kinoCheckbox.isSelected()) {
+            if (kinoCheckbox.isSelected()) {
 
                 kinoBereitsAbonniert = true;
                 topics.add("KINO");
 
             }
 
-            if(!kinoCheckbox.isSelected()) {
+            if (!kinoCheckbox.isSelected()) {
 
                 kinoBereitsAbonniert = false;
 
             }
 
             //THEATER
-            if(theaterCheckbox.isSelected()) {
+            if (theaterCheckbox.isSelected()) {
 
                 theaterBereitsAbonniert = true;
                 topics.add("THEATER");
 
             }
 
-            if(!theaterCheckbox.isSelected()) {
+            if (!theaterCheckbox.isSelected()) {
 
                 theaterBereitsAbonniert = false;
 
             }
 
             //KONZERT
-            if(konzertCheckbox.isSelected()) {
+            if (konzertCheckbox.isSelected()) {
 
                 konzertBereitsAbonniert = true;
                 topics.add("KONZERT");
 
             }
 
-            if(!konzertCheckbox.isSelected()) {
+            if (!konzertCheckbox.isSelected()) {
 
                 konzertBereitsAbonniert = false;
 
@@ -255,7 +251,7 @@ public class AboEinstellungenController implements Initializable {
 
         themenLabel.setVisible(false);
 
-        if(!kinoCheckbox.isSelected() && !theaterCheckbox.isSelected() && !konzertCheckbox.isSelected()) {
+        if (!kinoCheckbox.isSelected() && !theaterCheckbox.isSelected() && !konzertCheckbox.isSelected()) {
 
             valid = false;
 
